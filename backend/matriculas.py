@@ -63,7 +63,7 @@ def matricular_cliente():
     disponibles y verifica que cupos_ocupados < capacidad_maxima antes de registrar la matrícula.
     Dev3: Implementar la búsqueda de clientes, validación de aforo y registro en 'matriculas'.
     """
-    pass
+    
 
 def registrar_asistencia_y_progreso():
     """
