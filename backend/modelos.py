@@ -28,4 +28,9 @@ def crear_servicio(id_servicio, nombre, capacidad_maxima):
     su ID, nombre, capacidad máxima y cupos ocupados inicializados en 0.
     Dev1: Implementar el retorno del diccionario del servicio.
     """
-    pass
+    return{
+        "id_servicio": id_servicio,
+        "nombre": nombre,
+        "capacidad_maxima": capacidad_maxima,
+        "cupos_ocupados": 0
+    }
