@@ -12,14 +12,14 @@ def crear_cliente(id_num, nombres, apellidos, direccion, celular, fijo, estado="
     Dev1: Implementar el retorno del diccionario con sus campos.
     """
     return{
-        "id_num", id_num,
-        "nombres", nombres,
-        "apellidos", apellidos,
-        "direccion", direccion,
-        "celular", celular,
-        "fijo", fijo,
-        "estado", estado,
-        "riesgo", riesgo
+        "id_num": id_num,
+        "nombres": nombres,
+        "apellidos": apellidos,
+        "direccion": direccion,
+        "celular": celular,
+        "fijo": fijo,
+        "estado": estado,
+        "riesgo": riesgo
     }
 
 def crear_servicio(id_servicio, nombre, capacidad_maxima):
