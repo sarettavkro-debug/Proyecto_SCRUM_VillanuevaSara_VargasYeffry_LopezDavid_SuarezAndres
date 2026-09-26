@@ -7,6 +7,7 @@ def matricular_cliente():
         idC = int(input("ingrese el id del cliente: "))
     except ValueError:
         print("el id debe ser un numero entero")
+        return
 
     cliente_encontrado=None
     for cliente in clientes:
@@ -15,6 +16,7 @@ def matricular_cliente():
 
     if not cliente_encontrado:
         print("no se encontro un cliente ")
+        return
 
     if not servicios:
         print("no se encontraron servicios")
@@ -30,6 +32,7 @@ def matricular_cliente():
         idS = int(input("ingrese el id del servicio que quiere matricular "))
     except ValueError:
         print("el id tiene que ser un numero entero")
+        return
 
     servicio_encontrado=None  
     for s in servicios:  
