@@ -29,21 +29,21 @@ def menu_principal():
 
         opcion = input("Seleccionar una opción: ")
 
-        if opcion == 1:
+        if opcion == "1":
             registrar_cliente()
-        elif opcion == 2:
+        elif opcion == "2":
             matricular_cliente()
-        elif opcion == 3:
+        elif opcion == "3":
             registrar_asistencia_y_progreso()
-        elif opcion == 4:
+        elif opcion == "4":
             listar_clientes_inscritos()
-        elif opcion == 5: 
+        elif opcion == "5": 
             listar_servicios_y_capacidad()
-        elif opcion == 6:
+        elif opcion == "6":
             listar_clientes_riesgo_alto()
-        elif opcion == 7:
+        elif opcion == "7":
             mostrar_progreso_clientes()
-        elif opcion == 8:
+        elif opcion == "8":
             print("Saliendo del programa....")
             break
         else:
