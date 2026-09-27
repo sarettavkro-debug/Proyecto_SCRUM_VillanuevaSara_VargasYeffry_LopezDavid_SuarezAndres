@@ -45,6 +45,16 @@ Para dar solución a esta problemática, el equipo de desarrollo implementa una 
 * **Bloqueos / Impedimentos:** Ninguno.
 * **Estado del Tablero:** Tarjeta #1 completada y movida a *Hecho*. Tarjetas del Sprint 1 asignadas.
 
+#### 📌 Día 2: Módulo de Usuarios, Servicios y Requerimientos
+* **Fecha:** 27 de septiembre de 2026
+* **Moderador:** Scrum Master (Dev 4)
+* **Plan de trabajo y compromisos del día:**
+  * **Dev 1:** Redactará la especificación detallada de los diccionarios en `docs/estructura_datos.md`.
+  * **Dev 2:** Implementará `registrar_cliente()` y `cargar_servicios_iniciales()` en `backend/inscripciones.py`.
+  * **Dev 3:** Validará la compatibilidad de la estructura de diccionarios para el control de aforos en matrículas.
+  * **Dev 4 (Scrum Master):** Redactará los Requerimientos Funcionales (RF) y No Funcionales (RNF) en `docs/documentacion.md` y supervisará las tarjetas del Sprint 1.
+* **Bloqueos / Impedimentos reportados:** Ninguno.
+* **Estado del Tablero:** Tarjeta #2 movida a *En curso*; Tarjeta #5 actualizada con la sección de Requerimientos.
 
 ---
 
