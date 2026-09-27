@@ -5,10 +5,10 @@ Responsable: Desarrollador 4 – Scrum Master
 * Sara Villanueva Caro
 * Yeffry Vargas
 * David López
-* Andrés Suárez
+* Juan Andrés Suárez
 
-**Asignatura:** Ingeniería de Software  
-**Institución:** Universidad de Santander (UDES)  
+**Asignatura:** Scrum y Metodologías ágiles  
+**Institución:** Campuslands  
 **Fecha:** Septiembre de 2026  
 
 ---
@@ -35,7 +35,7 @@ Para dar solución a esta problemática, el equipo de desarrollo implementa una 
 
 ### 2.3 Seguimiento Diario (Daily Stand-ups)
 
-#### 📌 Día 1: Kickoff, Configuración y Arquitectura Base
+#### 📌 Día 1: Configuración y Arquitectura Base
 * **Fecha:** 26 de septiembre de 2026
 * **Moderador:** Scrum Master (Dev 4)
 * **Resumen de intervenciones:**
@@ -44,6 +44,17 @@ Para dar solución a esta problemática, el equipo de desarrollo implementa una 
   * **Dev 4:** Creó y configuró el tablero Kanban en GitHub Projects, definiendo columnas, vistas, etiquetas y campos de Sprint.
 * **Bloqueos / Impedimentos:** Ninguno.
 * **Estado del Tablero:** Tarjeta #1 completada y movida a *Hecho*. Tarjetas del Sprint 1 asignadas.
+
+#### 📌 Día 2: Módulo de Usuarios, Servicios y Requerimientos
+* **Fecha:** 27 de septiembre de 2026
+* **Moderador:** Scrum Master (Dev 4)
+* **Plan de trabajo y compromisos del día:**
+  * **Dev 1:** Redactará la especificación detallada de los diccionarios en `docs/estructura_datos.md`.
+  * **Dev 2:** Implementará `registrar_cliente()` y `cargar_servicios_iniciales()` en `backend/inscripciones.py`.
+  * **Dev 3:** Validará la compatibilidad de la estructura de diccionarios para el control de aforos en matrículas.
+  * **Dev 4 (Scrum Master):** Redactará los Requerimientos Funcionales (RF) y No Funcionales (RNF) en `docs/documentacion.md` y supervisará las tarjetas del Sprint 1.
+* **Bloqueos / Impedimentos reportados:** Ninguno.
+* **Estado del Tablero:** Tarjeta #2 movida a *En curso*; Tarjeta #5 actualizada con la sección de Requerimientos.
 
 ---
 
@@ -94,9 +105,20 @@ El proyecto cuenta con un tablero Kanban configurado con 5 estados de flujo de t
 
 ### 5.2 Capturas y Estado del Tablero (Día 1)
 
-![Captura](<../Imagenes/Tablero dia 1.png>)
+![Captura](<../Imagenes/Tablero dia 1 actualizado.png>)
 
 * **Organización por Sprints:**
   * **Sprint 1 (Días 1 a 3):** Enfocado en configuración, modelos de datos, inscripciones de clientes y matrículas con control de aforo.
   * **Sprint 2 (Días 4 y 5):** Enfocado en generación de reportes, pruebas cruzadas e integración final.
 * **Metadatos asignados:** Cada tarjeta cuenta con sus respectivos responsables (*Assignees*), etiquetas de clasificación (`backend`, `documentation`, `setup`, `testing`) y la iteración asignada.
+
+### 5.3 Evidencias del Tablero - Día 2
+
+Al finalizar el Día 2, el tablero Kanban refleja el inicio de los trabajos de desarrollo técnico del Sprint 1:
+
+* **Reserva (Backlog):** Se mantienen las tarjetas #4 (Reportes) y #6 (Integración final) asignadas para el Sprint 2.
+* **Por hacer:** Tarjeta #3 (Módulo de Matrículas) lista para el Día 3.
+* **En curso:** Tarjeta #2 (Módulo de Usuarios e Inscripciones) en desarrollo activo por Dev 2 y Dev 1. Tarjeta #5 (Documentación y Requerimientos por Dev 4).
+* **Hecho:** Tarjeta #1 (Configuración de entorno).
+
+![Captura](<../Imagenes/Tablero Kanban día 2.png>)
