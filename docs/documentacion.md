@@ -57,3 +57,21 @@ Para dar solución a esta problemática, el equipo de desarrollo implementa una 
 * **RNF01 - Usabilidad:** Interfaz de consola clara e intuitiva estructurada mediante menús numéricos.
 * **RNF02 - Mantenibilidad:** Código modularizado en archivos independientes (`modelos.py`, `inscripciones.py`, `matriculas.py`, `reportes.py`).
 * **RNF03 - Integridad de Datos:** Validación de tipos de datos y control de redundancia en la memoria del sistema.
+
+## 4. METODOLOGÍA SCRUM Y ROLES
+
+El desarrollo de la aplicación para el Gimnasio ForceTech se gestiona mediante la metodología ágil **SCRUM**, organizada en un ciclo de desarrollo de 5 días con 2 Sprints operativos.
+
+### 4.1 Definición de Roles
+* **Product Owner:** Encargado de priorizar el Product Backlog y definir los criterios de aceptación para las funcionalidades del gimnasio.
+* **Scrum Master (Dev 4):** Lidera la gestión del tablero en GitHub Projects, facilita los Daily Stand-ups, remueve bloqueos técnicos y coordina la integración del equipo.
+* **Equipo de Desarrollo (Dev 1, Dev 2, Dev 3, Dev 4):**
+  * **Dev 1:** Arquitectura base y modelos (`backend/modelos.py`).
+  * **Dev 2:** Módulo de inscripciones y registro de clientes (`backend/inscripciones.py`).
+  * **Dev 3:** Módulo de matrículas y control de aforo (`backend/matriculas.py`).
+  * **Dev 4:** Módulo de reportes (`backend/reportes.py`) y documentación oficial.
+
+### 4.2 Artefactos y Eventos
+* **Product Backlog:** Listado de las 6 User Stories/Tarjetas principales creadas en GitHub Projects.
+* **Sprint Backlog:** Selección de tareas asignadas para la iteración actual.
+* **Daily Stand-up:** Sincronización diaria de 10 minutos para revisar el estado del tablero Kanban.
