@@ -19,6 +19,8 @@ El Gimnasio ForceTech enfrenta actualmente la necesidad de optimizar y centraliz
 
 Para dar solución a esta problemática, el equipo de desarrollo implementa una aplicación en Python bajo el marco de trabajo ágil SCRUM. Esta solución permite gestionar inscripciones, controlar cupos en tiempo real, asignar instructores y evaluar periódicamente el progreso físico de los clientes con los más altos estándares de calidad.
 
+---
+
 ## 2. MARCO DE TRABAJO SCRUM
 
 ### 2.1 Roles del Equipo
@@ -58,6 +60,8 @@ Para dar solución a esta problemática, el equipo de desarrollo implementa una 
 * **RNF02 - Mantenibilidad:** Código modularizado en archivos independientes (`modelos.py`, `inscripciones.py`, `matriculas.py`, `reportes.py`).
 * **RNF03 - Integridad de Datos:** Validación de tipos de datos y control de redundancia en la memoria del sistema.
 
+---
+
 ## 4. METODOLOGÍA SCRUM Y ROLES
 
 El desarrollo de la aplicación para el Gimnasio ForceTech se gestiona mediante la metodología ágil **SCRUM**, organizada en un ciclo de desarrollo de 5 días con 2 Sprints operativos.
@@ -75,3 +79,24 @@ El desarrollo de la aplicación para el Gimnasio ForceTech se gestiona mediante 
 * **Product Backlog:** Listado de las 6 User Stories/Tarjetas principales creadas en GitHub Projects.
 * **Sprint Backlog:** Selección de tareas asignadas para la iteración actual.
 * **Daily Stand-up:** Sincronización diaria de 10 minutos para revisar el estado del tablero Kanban.
+
+---
+
+## 5. EVIDENCIAS DEL TABLERO VIRTUAL
+
+### 5.1 Estructura del Tablero Kanban (GitHub Projects)
+El proyecto cuenta con un tablero Kanban configurado con 5 estados de flujo de trabajo:
+1. **Reserva (Backlog):** Tareas pendientes para Sprints futuros.
+2. **Por Hacer (Sprint Backlog):** Tareas priorizadas para el Sprint activo.
+3. **En Curso (In Progress):** Tareas en desarrollo activo.
+4. **En Revisión (In Review):** Tareas pendientes de verificación o Pull Request.
+5. **Hecho (Done):** Tareas finalizadas y probadas.
+
+### 5.2 Capturas y Estado del Tablero (Día 1)
+
+![Captura](<../Imagenes/Tablero dia 1.png>)
+
+* **Organización por Sprints:**
+  * **Sprint 1 (Días 1 a 3):** Enfocado en configuración, modelos de datos, inscripciones de clientes y matrículas con control de aforo.
+  * **Sprint 2 (Días 4 y 5):** Enfocado en generación de reportes, pruebas cruzadas e integración final.
+* **Metadatos asignados:** Cada tarjeta cuenta con sus respectivos responsables (*Assignees*), etiquetas de clasificación (`backend`, `documentation`, `setup`, `testing`) y la iteración asignada.
