@@ -31,3 +31,17 @@ Para dar solución a esta problemática, el equipo de desarrollo implementa una 
 * **Daily Stand-up:** Reuniones diarias de 10 minutos para revisar avances en el tablero Kanban y coordinar integraciones.
 * **Sprint Review & Retrospective:** Demostración del incremento funcional e identificación de mejoras para la siguiente iteración.
 
+---
+
+## 3. LEVANTAMIENTO DE REQUERIMIENTOS
+
+### 3.1 Requerimientos Funcionales (RF)
+* **RF01 - Gestión de Clientes:** El sistema debe permitir registrar clientes con su ID, nombres, apellidos, dirección, teléfonos de contacto, estado y nivel de riesgo (Alto, Medio, Bajo).
+* **RF02 - Catálogo de Servicios:** El sistema debe permitir consultar y gestionar los 5 servicios ofrecidos y su capacidad máxima.
+* **RF03 - Módulo de Matrículas:** El sistema debe permitir matricular clientes en un servicio verificando que no se supere la capacidad máxima (aforo).
+* **RF04 - Módulo de Reportes:** El sistema debe generar reportes consolidando clientes inscritos, servicios activos, aforo ocupado y usuarios con riesgo alto.
+
+### 3.2 Requerimientos No Funcionales (RNF)
+* **RNF01 - Usabilidad:** Interfaz de consola clara e intuitiva estructurada mediante menús numéricos.
+* **RNF02 - Mantenibilidad:** Código modularizado en archivos independientes (`modelos.py`, `inscripciones.py`, `matriculas.py`, `reportes.py`).
+* **RNF03 - Integridad de Datos:** Validación de tipos de datos y control de redundancia en la memoria del sistema.
