@@ -66,9 +66,42 @@ def matricular_cliente():
     
 
 def registrar_asistencia_y_progreso():
+
+    try:    
+        idC=int(input("ingrese el id del cliente: "))
+    except ValueError:
+        print("el id debe ser un numero entero")
+        return
+    matriculas_cliente =[m for m in matriculas if m.get("id_cliente") == idC]
+
+    if not matriculas_cliente:
+        print("el cliente no tiene matriculas registradas ")
+        return
+
+    print("Opciones de registro:")
+    print("1.Registrar asistencia")
+    print("2.Registrar evaluación física")
+    opcion=input("selecione una de las opciones ")
+    if opcion =="1":
+        fecha=input("ingrese la fecha de asistencia (DD/MM/AAAA)")
+        for m in matriculas_cliente:
+            m["asistencia"].append(fecha)
+            print("asistencia registrada")
+
+    elif opcion =="2":
+        peso =input("ingrese su peso actual en kg: ")
+        observaciones=input("ingrese las observaciones fisicas: ")
+        evaluacion = {"peso":peso,"observaciones":observaciones}
+
+        for m in matriculas_cliente:
+            m["evaluaciones_fisicas"].append(evaluacion)
+            print("evaluacio fisica registrada")
+
+    else:
+        print("opcion no valida")
     """
     Descripción: Permite al instructor registrar la asistencia y las evaluaciones físicas
     periódicas de un cliente matriculado.
     Dev3: Implementar la actualización de datos sobre el diccionario de matrículas.
     """
-    pass  
+    
