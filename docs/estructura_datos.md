@@ -18,3 +18,12 @@ Aquí irá el campo, tipo de dato, descripción, restricciones y notas.
 - `fijo`: Número de teléfono fijo de contacto. Opcional.
 - `estado`: Estado actual del cliente dentro del proceso de inscripción. Valor por defecto: "En proceso de inscripción".
 - `riesgo`: Nivel de riesgo asociado a la condición física/salud del cliente. Valor por defecto: "medio".
+
+## Diccionario de datos: Servicio
+Entidad que representa los distintos ofrecidos por el gimnasio (clases, entrenamientos y accesos).
+
+- `id_servicio`: Identificador único del servicio. No nulo.
+- `nombre`: Nombre del servicio ofrecido. No nulo.
+- `capacidad_maxima`: Número máximo de clientes que pueden asignarse simultáneamente al servicio. No nulo. Debe ser mayor a 0.
+- `cupos_ocupados`: Número de cupos actualmente ocupados. Inicializado en 0.
+
