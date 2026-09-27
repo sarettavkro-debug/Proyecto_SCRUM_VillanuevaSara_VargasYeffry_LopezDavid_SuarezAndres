@@ -118,7 +118,7 @@ Al finalizar el Día 2, el tablero Kanban refleja el inicio de los trabajos de d
 
 * **Reserva (Backlog):** Se mantienen las tarjetas #4 (Reportes) y #6 (Integración final) asignadas para el Sprint 2.
 * **Por hacer:** Tarjeta #3 (Módulo de Matrículas) lista para el Día 3.
-* **En curso:** Tarjeta #2 (Módulo de Usuarios e Inscripciones) en desarrollo activo por Dev 2 y Dev 1.
-* **Hecho:** Tarjeta #1 (Configuración de entorno) y Tarjeta #5 (Documentación y Requerimientos por Dev 4).
+* **En curso:** Tarjeta #2 (Módulo de Usuarios e Inscripciones) en desarrollo activo por Dev 2 y Dev 1. Tarjeta #5 (Documentación y Requerimientos por Dev 4).
+* **Hecho:** Tarjeta #1 (Configuración de entorno).
 
 ![Captura](<../Imagenes/Tablero Kanban día 2.png>)
