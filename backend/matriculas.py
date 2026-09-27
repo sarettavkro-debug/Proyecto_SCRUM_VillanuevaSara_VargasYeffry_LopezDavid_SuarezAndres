@@ -58,11 +58,6 @@ def matricular_cliente():
     matriculas.append(nueva_matricula)
     print("¡Matrícula registrada con éxito!")
 
-    """
-    Descripción: Solicita el ID de un cliente, valida que exista, muestra los servicios
-    disponibles y verifica que cupos_ocupados < capacidad_maxima antes de registrar la matrícula.
-    Dev3: Implementar la búsqueda de clientes, validación de aforo y registro en 'matriculas'.
-    """
     
 
 def registrar_asistencia_y_progreso():
@@ -99,9 +94,4 @@ def registrar_asistencia_y_progreso():
 
     else:
         print("opcion no valida")
-    """
-    Descripción: Permite al instructor registrar la asistencia y las evaluaciones físicas
-    periódicas de un cliente matriculado.
-    Dev3: Implementar la actualización de datos sobre el diccionario de matrículas.
-    """
     
