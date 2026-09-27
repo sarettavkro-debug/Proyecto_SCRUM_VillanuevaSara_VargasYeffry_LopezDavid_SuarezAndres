@@ -31,6 +31,18 @@ Para dar solución a esta problemática, el equipo de desarrollo implementa una 
 * **Daily Stand-up:** Reuniones diarias de 10 minutos para revisar avances en el tablero Kanban y coordinar integraciones.
 * **Sprint Review & Retrospective:** Demostración del incremento funcional e identificación de mejoras para la siguiente iteración.
 
+### 2.3 Seguimiento Diario (Daily Stand-ups)
+
+#### 📌 Día 1: Kickoff, Configuración y Arquitectura Base
+* **Fecha:** 26 de septiembre de 2026
+* **Moderador:** Scrum Master (Dev 4)
+* **Resumen de intervenciones:**
+  * **Dev 1 & Dev 2:** Configuraron la estructura de carpetas, el archivo `backend/modelos.py` y el menú inicial en `main.py`.
+  * **Dev 3:** Revisó la estructura de datos base para los módulos posteriores.
+  * **Dev 4:** Creó y configuró el tablero Kanban en GitHub Projects, definiendo columnas, vistas, etiquetas y campos de Sprint.
+* **Bloqueos / Impedimentos:** Ninguno.
+* **Estado del Tablero:** Tarjeta #1 completada y movida a *Hecho*. Tarjetas del Sprint 1 asignadas.
+
 ---
 
 ## 3. LEVANTAMIENTO DE REQUERIMIENTOS
