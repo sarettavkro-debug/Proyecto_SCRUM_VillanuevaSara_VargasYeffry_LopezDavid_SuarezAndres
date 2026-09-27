@@ -5,10 +5,10 @@ Responsable: Desarrollador 4 – Scrum Master
 * Sara Villanueva Caro
 * Yeffry Vargas
 * David López
-* Andrés Suárez
+* Juan Andrés Suárez
 
-**Asignatura:** Ingeniería de Software  
-**Institución:** Universidad de Santander (UDES)  
+**Asignatura:** Scrum y Metodologías ágiles  
+**Institución:** Campuslands  
 **Fecha:** Septiembre de 2026  
 
 ---
@@ -94,7 +94,7 @@ El proyecto cuenta con un tablero Kanban configurado con 5 estados de flujo de t
 
 ### 5.2 Capturas y Estado del Tablero (Día 1)
 
-![Captura](<../Imagenes/Tablero dia 1.png>)
+![Captura](<../Imagenes/Tablero dia 1 actualizado.png>)
 
 * **Organización por Sprints:**
   * **Sprint 1 (Días 1 a 3):** Enfocado en configuración, modelos de datos, inscripciones de clientes y matrículas con control de aforo.
