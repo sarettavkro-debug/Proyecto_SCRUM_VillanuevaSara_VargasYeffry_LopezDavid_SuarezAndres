@@ -56,6 +56,8 @@ def matricular_cliente():
     }
     
     matriculas.append(nueva_matricula)
+
+    
     print("¡Matrícula registrada con éxito!")
 
     
