@@ -65,41 +65,44 @@ def matricular_cliente():
 
     matriculas.append(nueva_matricula)
     print("\n¡Matrícula registrada exitosamente!")
-
-    
+ 
 
 def registrar_asistencia_y_progreso():
-
-    try:    
-        idC=int(input("ingrese el id del cliente: "))
+    try:
+        idC = int(input("Ingrese el ID del cliente: "))
     except ValueError:
-        print("el id debe ser un numero entero")
+        print("El ID debe ser un número entero.")
         return
-    matriculas_cliente =[m for m in matriculas if m.get("id_cliente") == idC]
+
+    matriculas_cliente = [m for m in matriculas if m.get("id_cliente") == idC]
 
     if not matriculas_cliente:
-        print("el cliente no tiene matriculas registradas ")
+        print("El cliente no tiene matrículas registradas.")
         return
 
-    print("Opciones de registro:")
-    print("1.Registrar asistencia")
-    print("2.Registrar evaluación física")
-    opcion=input("selecione una de las opciones ")
-    if opcion =="1":
-        fecha=input("ingrese la fecha de asistencia (DD/MM/AAAA)")
+    print("\n--- Opciones de Seguimiento ---")
+    print("1. Registrar asistencia")
+    print("2. Registrar evaluación física")
+    opcion = input("Seleccione una opción (1 o 2): ")
+
+    if opcion == "1":
+        fecha = input("Ingrese la fecha de asistencia (YYYY-MM-DD): ")
         for m in matriculas_cliente:
             m["asistencia"].append(fecha)
-            print("asistencia registrada")
+        print("¡Asistencia registrada correctamente!")
 
-    elif opcion =="2":
-        peso =input("ingrese su peso actual en kg: ")
-        observaciones=input("ingrese las observaciones fisicas: ")
-        evaluacion = {"peso":peso,"observaciones":observaciones}
+    elif opcion == "2":
+        peso = input("Ingrese el peso (kg): ")
+        observaciones = input("Ingrese observaciones físicas: ")
+
+        evaluacion = {
+            "peso": peso,
+            "observaciones": observaciones
+        }
 
         for m in matriculas_cliente:
             m["evaluaciones_fisicas"].append(evaluacion)
-            print("evaluacio fisica registrada")
+        print("¡Evaluación física registrada correctamente!")
 
     else:
-        print("opcion no valida")
-
+        print("Opción no válida.")
