@@ -25,6 +25,11 @@ Aquí irá el campo, tipo de dato, descripción, restricciones y notas.
 - Activo: El cliente participa en uno o más servicios del gimnasio.
 - Inactivo: El cliente no tiene actividad actual (pausa, retiro temporal o definitivo).
 
+## Niveles de riesgo
+- Alto: Cliente con condiciones que requieren supervisión constante o restricciones en el tipo de actividad física.
+- Medio: Cliente con condiciones moderadas que requieren seguimiento periódico.
+- Bajo: Cliente sin condiciones relevantes que limiten su actividad física.
+
 ## Diccionario de datos: Servicio
 Entidad que representa los distintos ofrecidos por el gimnasio (clases, entrenamientos y accesos).
 
