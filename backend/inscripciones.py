@@ -43,8 +43,10 @@ def cargar_servicios_iniciales():
     """
 
     if len(servicios) > 0:
-        servicios.append(crear_servicio(1, "Yoga", 15))
-        servicios.append(crear_servicio(2, "Pilates", 12))
-        servicios.append(crear_servicio(3, "Entrenamiento personalizado", 5))
-        servicios.append(crear_servicio(4, "Piscina", 20))
-        servicios.append(crear_servicio(5, "Gimnasio general", 30))
+        return
+    
+    servicios.append(crear_servicio(1, "Yoga", 15))
+    servicios.append(crear_servicio(2, "Pilates", 12))
+    servicios.append(crear_servicio(3, "Entrenamiento personalizado", 5))
+    servicios.append(crear_servicio(4, "Piscina", 20))
+    servicios.append(crear_servicio(5, "Gimnasio general", 30))
