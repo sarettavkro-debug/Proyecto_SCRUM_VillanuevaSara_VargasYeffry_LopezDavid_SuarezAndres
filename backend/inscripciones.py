@@ -15,7 +15,7 @@ def registrar_cliente():
         return
 
     for c in clientes:
-        if c ["id_clientes"] == id_num:
+        if c ["id_num"] == id_num:
             print("Ya existe un cliente con ese ID.")
             return
 
