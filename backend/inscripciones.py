@@ -7,7 +7,33 @@ def registrar_cliente():
     crear_cliente() para armar la estructura y lo guarda en la lista global 'clientes'.
     Dev2: Implementar lectura por consola (input) y guardado en lista.
     """
-    pass
+    print("===== REGISTRAR CLIENTE =====")
+
+    id_num = input("ID: ").strip()
+    if id_num == "":
+        print("El ID no puede estar vacio. ")
+        return
+
+    for c in clientes:
+        if c ["id_num"] == id_num:
+            print("Ya existe un cliente con ese ID.")
+            return
+
+    riesgo = input("Riesgo (bajo/medio/alto): ").strip().lower()
+    while riesgo not in ("bajo", "medio", "alto"):
+        print("Valor invalido. Intenta escribiendo bajo, medio o alto. Intenta de nuevo bro.")
+        riesgo = input("Riesgo (bajo/medio/alto): ").strip().lower()
+
+    nombres = input("Nombres: ").strip()
+    apellidos = input("Apellidos: ").strip()
+    direccion = input("Direccion: ").strip()
+    celular = input("Celular: ")
+    tel_fijo = input("Telefono_fijo: ").strip()
+
+    cliente = crear_cliente(id_num, nombres, apellidos, direccion, celular, tel_fijo, riesgo=riesgo)
+    clientes.append(cliente)
+    print(f"Cliente {nombres} {apellidos} registrado completamente. ")
+
 
 def cargar_servicios_iniciales():
     """
@@ -15,4 +41,10 @@ def cargar_servicios_iniciales():
     Entrenamiento personalizado, Piscina, Gimnasio general) dentro de la lista 'servicios'.
     Dev2: Implementar la precarga de datos al iniciar la aplicación.
     """
-    pass
+
+    if len(servicios) > 0:
+        servicios.append(crear_servicio(1, "Yoga", 15))
+        servicios.append(crear_servicio(2, "Pilates", 12))
+        servicios.append(crear_servicio(3, "Entrenamiento personalizado", 5))
+        servicios.append(crear_servicio(4, "Piscina", 20))
+        servicios.append(crear_servicio(5, "Gimnasio general", 30))
