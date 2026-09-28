@@ -10,20 +10,20 @@ Entidad que representa a las personas inscritas en el gimnasio, sus datos de con
 
 Aquí irá el campo, tipo de dato, descripción, restricciones y notas.
 
-- `id_num`: Número de identificación oficial del cliente (Cédula, DNI, etc). Único, no nulo.
-- `nombres`: Nombre(s) del cliente. No nulo.
-- `apellidos`: Apellido(s) del cliente. No nulo.
-- `direccion`: Dirección de residencia del cliente. Opcional según las reglas de negocio.
-- `celular`: Número de teléfono celular de contacto. Formato numérico validado.
-- `fijo`: Número de teléfono fijo de contacto. Opcional.
-- `estado`: Estado actual del cliente dentro del proceso de inscripción. Valor por defecto: "En proceso de inscripción".
-- `riesgo`: Nivel de riesgo asociado a la condición física/salud del cliente. Valor por defecto: "medio".
+- `id_num`(Cadena de texto / VARCHAR 20): Número de identificación oficial del cliente (Cédula, DNI, etc). Único, no nulo.
+- `nombres`(Cadena de texto / VARCHAR 50): Nombre(s) del cliente. No nulo.
+- `apellidos`(Cadena de texto / VARCHAR 50): Apellido(s) del cliente. No nulo.
+- `direccion`(Cadena de texto / VARCHAR 150): Dirección de residencia del cliente. Opcional según las reglas de negocio.
+- `celular`(Cadena de texto / VARCHAR 15): Número de teléfono celular de contacto. Formato numérico validado.
+- `fijo`(Cadena de texto / VARCHAR 15): Número de teléfono fijo de contacto. Opcional.
+- `estado`(Enumerado / ENUM): Estado actual del cliente dentro del proceso de inscripción. Valor por defecto: "En proceso de inscripción".
+- `riesgo`(Enumerado / ENUM): Nivel de riesgo asociado a la condición física/salud del cliente. Valor por defecto: "medio".
 
 ## Diccionario de datos: Servicio
 Entidad que representa los distintos ofrecidos por el gimnasio (clases, entrenamientos y accesos).
 
-- `id_servicio`: Identificador único del servicio. No nulo.
-- `nombre`: Nombre del servicio ofrecido. No nulo.
-- `capacidad_maxima`: Número máximo de clientes que pueden asignarse simultáneamente al servicio. No nulo. Debe ser mayor a 0.
-- `cupos_ocupados`: Número de cupos actualmente ocupados. Inicializado en 0.
+- `id_servicio`(Cadena de texto / VARCHAR 20): Identificador único del servicio. No nulo.
+- `nombre`(Cadena de texto / VARCHAR 50): Nombre del servicio ofrecido. No nulo.
+- `capacidad_maxima`(Entero / INT): Número máximo de clientes que pueden asignarse simultáneamente al servicio. No nulo. Debe ser mayor a 0.
+- `cupos_ocupados`(Entero / INT): Número de cupos actualmente ocupados. Inicializado en 0.
 
