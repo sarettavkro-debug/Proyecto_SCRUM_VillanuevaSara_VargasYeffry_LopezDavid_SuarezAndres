@@ -19,6 +19,12 @@ Aquí irá el campo, tipo de dato, descripción, restricciones y notas.
 - `estado`(Enumerado / ENUM): Estado actual del cliente dentro del proceso de inscripción. Valor por defecto: "En proceso de inscripción".
 - `riesgo`(Enumerado / ENUM): Nivel de riesgo asociado a la condición física/salud del cliente. Valor por defecto: "medio".
 
+## Estados del Cliente
+- En proceso de inscripción: El cliente inició el registro pero aún no ha completado todos los requisitos.
+- Inscrito: El cliente completó su suscripción pero aún no ha sido asignado o no ha iniciado una actividad.
+- Activo: El cliente participa en uno o más servicios del gimnasio.
+- Inactivo: El cliente no tiene actividad actual (pausa, retiro temporal o definitivo).
+
 ## Diccionario de datos: Servicio
 Entidad que representa los distintos ofrecidos por el gimnasio (clases, entrenamientos y accesos).
 
