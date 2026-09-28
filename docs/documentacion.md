@@ -115,7 +115,7 @@ El proyecto cuenta con un tablero Kanban configurado con 5 estados de flujo de t
 
 ### 5.2 Capturas y Estado del Tablero (Día 1)
 
-![Captura](<../Imagenes/Tablero dia 1 actualizado.png>)
+![Captura](<../Imagenes/Kanban dia 1 actualizado.0.png>)
 
 * **Organización por Sprints:**
   * **Sprint 1 (Días 1 a 3):** Enfocado en configuración, modelos de datos, inscripciones de clientes y matrículas con control de aforo.
@@ -124,7 +124,7 @@ El proyecto cuenta con un tablero Kanban configurado con 5 estados de flujo de t
 
 ### 5.3 Evidencias del Tablero - Día 2
 
-![Captura](<../Imagenes/Tablero Kanban día 2.png>)
+![Captura](<../Imagenes/Kanban día 2 actualizado.png>)
 
 Al finalizar el Día 2, el tablero Kanban refleja el inicio de los trabajos de desarrollo técnico del Sprint 1:
 
