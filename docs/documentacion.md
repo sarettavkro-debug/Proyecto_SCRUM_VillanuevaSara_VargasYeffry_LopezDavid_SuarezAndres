@@ -124,6 +124,8 @@ El proyecto cuenta con un tablero Kanban configurado con 5 estados de flujo de t
 
 ### 5.3 Evidencias del Tablero - Día 2
 
+![Captura](<../Imagenes/Tablero Kanban día 2.png>)
+
 Al finalizar el Día 2, el tablero Kanban refleja el inicio de los trabajos de desarrollo técnico del Sprint 1:
 
 * **Reserva (Backlog):** Se mantienen las tarjetas #4 (Reportes) y #6 (Integración final) asignadas para el Sprint 2.
@@ -131,5 +133,18 @@ Al finalizar el Día 2, el tablero Kanban refleja el inicio de los trabajos de d
 * **En curso:** Tarjeta #2 (Módulo de Usuarios e Inscripciones) en desarrollo activo por Dev 2 y Dev 1. Tarjeta #5 (Documentación y Requerimientos por Dev 4).
 * **Hecho:** Tarjeta #1 (Configuración de entorno).
 
-![Captura](<../Imagenes/Tablero Kanban día 2.png>)
+### 5.4 Evidencias del Tablero - Día 3 (Módulo de Matrículas y Control de Aforo)
 
+![Captura](<../Imagenes/Kanban día 3.png>)
+
+Al finalizar el Día 3, el tablero en GitHub Projects evidencia el avance y la culminación del desarrollo técnico correspondiente al **Sprint 1**:
+
+* **Reserva (Backlog):** Se mantienen aisladas las Tarjetas **#4** (Módulo de Reportes) y **#6** (Integración final y entrega), las cuales se activarán al inicio del Sprint 2 (Días 4 y 5).
+* **Por hacer:** Columna despejada debido a que todas las historias del Sprint 1 han pasado a fase de ejecución o revisión.
+* **En curso:** 
+  * **Tarjeta #3 (Módulo de Matrículas y Control de Aforo):** Asignada a **Dev 3**, enfocada en la programación de la lógica en `backend/matriculas.py` para la validación de cupos máximos por disciplina.
+* **En revisión:** 
+  * **Tarjeta #2 (Módulo de Inscripciones y Clientes):** Asignada a **Dev 2**, en proceso de revisión de código y validación del Pull Request hacia la rama principal (`main`).
+    * **Tarjeta #5:** Documentación técnica, Requerimientos (RF/RNF) y gestión del marco SCRUM por el Scrum Master (Dev 4).
+* **Hecho:** 
+  * **Tarjeta #1:** Configuración inicial del proyecto y entorno de trabajo.
