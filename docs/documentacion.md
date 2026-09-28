@@ -2,11 +2,10 @@ Responsable: Desarrollador 4 – Scrum Master
 # PROYECTO: Sistema de Gestión - Gimnasio ForceTech
 
 **Integrantes:**
-* Sara Villanueva Caro
-* Yeffry Vargas
-* David López
-* Juan Andrés Suárez
-
+* Juan Andrés Suárez (Dev 1)
+* Yeffry Vargas (Dev 2)
+* David López (Dev 3)
+* Sara Villanueva Caro (Dev 4)
 **Asignatura:** Scrum y Metodologías ágiles  
 **Institución:** Campuslands  
 **Fecha:** Septiembre de 2026  
@@ -55,6 +54,17 @@ Para dar solución a esta problemática, el equipo de desarrollo implementa una 
   * **Dev 4 (Scrum Master):** Redactará los Requerimientos Funcionales (RF) y No Funcionales (RNF) en `docs/documentacion.md` y supervisará las tarjetas del Sprint 1.
 * **Bloqueos / Impedimentos reportados:** Ninguno.
 * **Estado del Tablero:** Tarjeta #2 movida a *En curso*; Tarjeta #5 actualizada con la sección de Requerimientos.
+
+#### 📌 Día 3: Módulo de Matrículas y Control de Aforo
+* **Fecha:** 28 de septiembre de 2026
+* **Moderador:** Scrum Master (Dev 4)
+* **Plan de trabajo y compromisos del día:**
+  * **Dev 1:** Apoyará en las pruebas de integración entre los módulos de inscripciones y matrículas en consola.
+  * **Dev 2:** Finalizará la revisión del Pull Request para el módulo de inscripciones (`backend/inscripciones.py`) e integrará cambios a `main`.
+  * **Dev 3:** Programará en `backend/matriculas.py` la lógica de matrículas validando el control de aforo y cupos máximos por servicio.
+  * **Dev 4 (Scrum Master):** Actualizará la bitácora del proyecto, registrará capturas del estado del tablero y verificará el avance del Sprint 1.
+* **Bloqueos / Impedimentos reportados:** Ninguno.
+* **Estado del Tablero:** Tarjeta #2 movida a *En Revisión* / *Hecho*; Tarjeta #3 movida a *En Curso*.
 
 ---
 
@@ -122,3 +132,4 @@ Al finalizar el Día 2, el tablero Kanban refleja el inicio de los trabajos de d
 * **Hecho:** Tarjeta #1 (Configuración de entorno).
 
 ![Captura](<../Imagenes/Tablero Kanban día 2.png>)
+
