@@ -47,7 +47,7 @@ def menu_principal():
             print("Saliendo del programa....")
             break
         else:
-            print("Opcion invaldia, intenta de nuevo bro. ")
+            print("Opcion invaldia, intenta de nuevo. ")
 
 if __name__ == "__main__":
     menu_principal()
