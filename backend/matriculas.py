@@ -83,26 +83,38 @@ def registrar_asistencia_y_progreso():
     print("\n--- Opciones de Seguimiento ---")
     print("1. Registrar asistencia")
     print("2. Registrar evaluación física")
-    opcion = input("Seleccione una opción (1 o 2): ")
+    opcion = input("Seleccione una opción (1 o 2): ").strip()
 
     if opcion == "1":
-        fecha = input("Ingrese la fecha de asistencia (YYYY-MM-DD): ")
+        fecha = input("Ingrese la fecha de asistencia (YYYY-MM-DD): ").strip()
+        hora = input("Ingrese la hora de entrada (HH:MM): ").strip()
+
+        if not fecha:
+            print("Error: La fecha de asistencia es obligatoria.")
+            return
+
         for m in matriculas_cliente:
+     
             m["asistencia"].append(fecha)
+            
         print("¡Asistencia registrada correctamente!")
 
     elif opcion == "2":
-        peso = input("Ingrese el peso (kg): ")
-        observaciones = input("Ingrese observaciones físicas: ")
+        peso = input("Ingrese el peso (kg): ").strip()
+        observaciones = input("Ingrese observaciones físicas: ").strip()
+
+        if not peso:
+            print("Error: El peso es obligatorio para la evaluación física.")
+            return
 
         evaluacion = {
             "peso": peso,
-            "observaciones": observaciones
+            "observaciones": observaciones if observaciones else "Sin observaciones"
         }
 
         for m in matriculas_cliente:
             m["evaluaciones_fisicas"].append(evaluacion)
+            
         print("¡Evaluación física registrada correctamente!")
-
     else:
         print("Opción no válida.")
