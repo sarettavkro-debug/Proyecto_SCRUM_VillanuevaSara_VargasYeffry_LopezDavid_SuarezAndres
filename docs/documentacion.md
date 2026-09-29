@@ -204,3 +204,29 @@ A continuación se detallan las Historias de Usuario (HU) definidas para el desa
 | **Funcionalidad** | Recorrer los diccionarios de datos del sistema para formatear y presentar en pantalla listas consolidadas de clientes inscritos, disciplinas con mayor demanda y niveles de aforo actualizados. |
 | **Criterios de Aceptación** | 1. El sistema debe listar la totalidad de los clientes con su respectiva información personal.<br>2. El sistema debe mostrar el conteo de clientes matriculados por cada disciplina.<br>3. El sistema debe mostrar el porcentaje o cantidad de aforo disponible por clase. |
 | **Restricciones** | Si no existen clientes registrados o disciplinas creadas, el sistema debe indicar mediante un mensaje claro que no hay datos para generar el reporte. |
+
+## Historia de Usuario 05
+
+| Campo | Detalle |
+|---|---|
+| **Prioridad** | Alta |
+| **Código del requerimiento** | RF05 |
+| **Nombre del requerimiento** | Gestión de Documentación SCRUM y Requerimientos |
+| **Actor** | Scrum Master |
+| **Descripción** | Como Scrum Master puedo redactar las especificaciones del sistema y actualizar la bitácora del proyecto con el fin de mantener un registro formal del avance bajo la metodología agil. |
+| **Funcionalidad** | Mantener actualizado el archivo `docs/documentacion.md` registrando requerimientos (RF/RNF), historias de usuario, actas de las reuniones diarias (Daily Stand-ups) y capturas del tablero Kanban. |
+| **Criterios de Aceptación** | 1. El documento debe contener la especificación de Requerimientos Funcionales y No Funcionales.<br>2. El documento debe incluir las bitácoras diarias de cada jornada de trabajo.<br>3. El documento debe respaldar los cambios con las capturas de pantalla del tablero GitHub Projects. |
+| **Restricciones** | La documentación debe actualizarse diariamente al finalizar la jornada y no se permite acumular avances de múltiples días sin registrar. |
+
+## Historia de Usuario 06
+
+| Campo | Detalle |
+|---|---|
+| **Prioridad** | Media |
+| **Código del requerimiento** | RF06 |
+| **Nombre del requerimiento** | Integración Final y Pruebas del Sistema |
+| **Actor** | Equipo de Desarrollo |
+| **Descripción** | Como equipo de desarrollo podemos integrar todos los módulos programados en el menú interactivo principal (`main.py`) con el fin de validar el correcto funcionamiento general del software antes de la entrega. |
+| **Funcionalidad** | Unificar las funciones de `backend/inscripciones.py` y `backend/matriculas.py` en un menú en consola funcional, ejecutando casos de prueba integrales. |
+| **Criterios de Aceptación** | 1. El archivo `main.py` debe permitir la navegación fluida entre todas las opciones del menú.<br>2. Las ramas de los desarrolladores deben integrarse sin conflictos hacia la rama `main`.<br>3. El programa debe gestionar los errores de entrada del usuario sin cerrarse inesperadamente. |
+| **Restricciones** | La integración final solo se realizará cuando las pruebas individuales de cada módulo hayan sido validadas y aprobadas por el equipo. |
