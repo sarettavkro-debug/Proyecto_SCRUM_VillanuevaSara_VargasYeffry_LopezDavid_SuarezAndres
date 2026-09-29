@@ -95,7 +95,7 @@ def registrar_asistencia_y_progreso():
 
         for m in matriculas_cliente:
      
-            m["asistencia"].append(hora)
+            m["asistencia"].append(fecha)
             
         print("¡Asistencia registrada correctamente!")
 
