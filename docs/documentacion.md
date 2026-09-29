@@ -148,3 +148,16 @@ Al finalizar el Día 3, el tablero en GitHub Projects evidencia el avance y la c
     * **Tarjeta #5:** Documentación técnica, Requerimientos (RF/RNF) y gestión del marco SCRUM por el Scrum Master (Dev 4).
 * **Hecho:** 
   * **Tarjeta #1:** Configuración inicial del proyecto y entorno de trabajo.
+
+## 4. Historias de Usuario y Criterios de Aceptación
+
+A continuación se detallan las Historias de Usuario (HU) definidas para el desarrollo del sistema ForceTech, extraídas del Backlog del proyecto:
+
+#### HU01: Configuración de Entorno y Arquitectura Base (Tarjeta #1)
+* **Como** Desarrollador
+* **Quiero** configurar el entorno de trabajo y el repositorio en GitHub
+* **Para** tener una base técnica sólida y estandarizada que permita al equipo iniciar la programación.
+* **Criterios de Aceptación:**
+  * [ ] El repositorio tiene la rama `main` y reglas de protección configuradas.
+  * [ ] Existe el archivo `.gitignore` adecuado para Python.
+  * [ ] La estructura de carpetas (`backend/`, `docs/`) está creada y subida al repositorio.
