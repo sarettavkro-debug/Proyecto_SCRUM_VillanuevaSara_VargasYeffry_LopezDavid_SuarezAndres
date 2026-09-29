@@ -149,15 +149,33 @@ Al finalizar el Día 3, el tablero en GitHub Projects evidencia el avance y la c
 * **Hecho:** 
   * **Tarjeta #1:** Configuración inicial del proyecto y entorno de trabajo.
 
-## 4. Historias de Usuario y Criterios de Aceptación
+## 6. Historias de Usuario y Criterios de Aceptación
 
 A continuación se detallan las Historias de Usuario (HU) definidas para el desarrollo del sistema ForceTech, extraídas del Backlog del proyecto:
 
-#### HU01: Configuración de Entorno y Arquitectura Base (Tarjeta #1)
-* **Como** Desarrollador
-* **Quiero** configurar el entorno de trabajo y el repositorio en GitHub
-* **Para** tener una base técnica sólida y estandarizada que permita al equipo iniciar la programación.
-* **Criterios de Aceptación:**
-  * [ ] El repositorio tiene la rama `main` y reglas de protección configuradas.
-  * [ ] Existe el archivo `.gitignore` adecuado para Python.
-  * [ ] La estructura de carpetas (`backend/`, `docs/`) está creada y subida al repositorio.
+## Historia de Usuario 01
+
+| Campo | Detalle |
+|---|---|
+| **Prioridad** | Alta |
+| **Código del requerimiento** | RF01 |
+| **Nombre del requerimiento** | Configuración de Entorno y Arquitectura Base |
+| **Actor** | Desarrollador / Scrum Master |
+| **Descripción** | Como desarrollador quiero configurar la estructura base del repositorio en GitHub y el entorno local para permitir el desarrollo colaborativo y modular del sistema ForceTech. |
+| **Funcionalidad** | Establecer la arquitectura de archivos del proyecto, las ramas de Git (`main` y ramas por desarrollador) e inicializar las carpetas `backend/` y `docs/` con sus respectivos archivos borrador. |
+| **Criterios de Aceptación** | 1. El sistema y repositorio deben contar con la rama principal `main` y ramas independientes configuradas por desarrollador.<br>2. El archivo `.gitignore` debe incluir las excepciones requeridas para proyectos en Python.<br>3. La estructura de carpetas debe reflejar la separación entre código fuente (`backend/`) y documentación (`docs/`). |
+| **Restricciones** | Ningún desarrollador debe hacer commits directos a la rama `main` sin la aprobación previa de un Pull Request (PR) por parte de otro integrante. |
+
+## Historia de Usuario 02
+
+| Campo | Detalle |
+|---|---|
+| **Prioridad** | Alta |
+| **Código del requerimiento** | RF03 |
+| **Nombre del requerimiento** | Módulo de Matrículas y Control de Aforo |
+| **Actor** | Administrador del Gimnasio |
+| **Descripción** | Como administrador puedo matricular a un cliente previamente inscrito en una disciplina específica con el fin de controlar la asistencia y garantizar que no se supere el aforo máximo permitido. |
+| **Funcionalidad** | Consultar la lista de disciplinas disponibles (Yoga, Pilates, Piscina, etc.), verificar la cantidad de cupos disponibles y asociar la matrícula del cliente disminuyendo en 1 la capacidad disponible. |
+| **Criterios de Aceptación** | 1. El sistema debe mostrar el listado de disciplinas con su respectivo aforo antes de confirmar la matrícula.<br>2. El sistema debe descontar un cupo automáticamente al completarse una matrícula.<br>3. El sistema debe emitir un mensaje de alerta en consola cuando la disciplina no cuente con cupos disponibles. |
+| **Restricciones** | No se permite el registro de dos clientes con el mismo número de documento de identidad (ID único). |
+
