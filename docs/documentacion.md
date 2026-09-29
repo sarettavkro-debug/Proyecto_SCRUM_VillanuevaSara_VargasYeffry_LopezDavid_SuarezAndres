@@ -179,3 +179,28 @@ A continuación se detallan las Historias de Usuario (HU) definidas para el desa
 | **Criterios de Aceptación** | 1. El sistema debe mostrar el listado de disciplinas con su respectivo aforo antes de confirmar la matrícula.<br>2. El sistema debe descontar un cupo automáticamente al completarse una matrícula.<br>3. El sistema debe emitir un mensaje de alerta en consola cuando la disciplina no cuente con cupos disponibles. |
 | **Restricciones** | No se permite el registro de dos clientes con el mismo número de documento de identidad (ID único). |
 
+## Historia de Usuario 03
+
+| Campo | Detalle |
+|---|---|
+| **Prioridad** | Alta |
+| **Código del requerimiento** | RF03 |
+| **Nombre del requerimiento** | Módulo de Matrículas y Control de Aforo |
+| **Actor** | Administrador del Gimnasio |
+| **Descripción** | Como administrador puedo matricular a un cliente previamente inscrito en una disciplina específica con el fin de controlar la asistencia y garantizar que no se supere el aforo máximo permitido. |
+| **Funcionalidad** | Consultar la lista de disciplinas disponibles (Yoga, Pilates, Piscina, etc.), verificar la cantidad de cupos disponibles y asociar la matrícula del cliente disminuyendo en 1 la capacidad disponible. |
+| **Criterios de Aceptación** | 1. El sistema debe mostrar el listado de disciplinas con su respectivo aforo antes de confirmar la matrícula.<br>2. El sistema debe descontar un cupo automáticamente al completarse una matrícula.<br>3. El sistema debe emitir un mensaje de alerta en consola cuando la disciplina no cuente con cupos disponibles. |
+| **Restricciones** | Un cliente solo puede matricularse en una disciplina si ha sido registrado previamente en el sistema y si la disciplina cuenta con cupos mayores a cero. |
+
+## Historia de Usuario 04
+
+| Campo | Detalle |
+|---|---|
+| **Prioridad** | Media |
+| **Código del requerimiento** | RF04 |
+| **Nombre del requerimiento** | Módulo de Reportes e Informes |
+| **Actor** | Administrador del Gimnasio |
+| **Descripción** | Como administrador puedo consultar e imprimir reportes generales en consola con el fin de conocer el estado de ocupación del gimnasio y el listado de clientes activos. |
+| **Funcionalidad** | Recorrer los diccionarios de datos del sistema para formatear y presentar en pantalla listas consolidadas de clientes inscritos, disciplinas con mayor demanda y niveles de aforo actualizados. |
+| **Criterios de Aceptación** | 1. El sistema debe listar la totalidad de los clientes con su respectiva información personal.<br>2. El sistema debe mostrar el conteo de clientes matriculados por cada disciplina.<br>3. El sistema debe mostrar el porcentaje o cantidad de aforo disponible por clase. |
+| **Restricciones** | Si no existen clientes registrados o disciplinas creadas, el sistema debe indicar mediante un mensaje claro que no hay datos para generar el reporte. |
