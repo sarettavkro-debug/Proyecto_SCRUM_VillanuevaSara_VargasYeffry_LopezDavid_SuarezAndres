@@ -73,9 +73,27 @@ def listar_clientes_riesgo_alto(clientes):
         
     print("-" * 50)
 
-def mostrar_progreso_clientes():
+def mostrar_progreso_clientes(clientes, matriculas=None):
     """
-    Descripción: Despliega la asistencia y el avance físico guardado en las matrículas.
-    Dev4: Implementar recorrido de la lista 'matriculas'.
-    """ 
-    pass
+    Muestra el resumen de avance o estado de los clientes (servicios/disciplinas a las que están matriculados).
+    """
+    print("\n" + "="*50)
+    print("      REPORTE: PROGRESO Y SERVICIOS POR CLIENTE")
+    print("="*50)
+    
+    if not clientes:
+        print("No hay clientes registrados en el sistema.")
+        return
+
+    for id_cliente, datos in clientes.items():
+        nombre = datos.get("nombre", "N/A")
+        apellido = datos.get("apellido", "N/A")
+        # Si existe estructura de matrículas dentro del cliente o recibida externamente
+        clases = datos.get("disciplinas_matriculadas", [])
+        if not clases and matriculas and id_cliente in matriculas:
+            clases = matriculas[id_cliente]
+            
+        estado_clases = ", ".join(clases) if clases else "Sin disciplinas matriculadas"
+        print(f"• {nombre} {apellido} (ID: {id_cliente}) -> Inscrito en: {estado_clases}")
+
+    print("-" * 50)
