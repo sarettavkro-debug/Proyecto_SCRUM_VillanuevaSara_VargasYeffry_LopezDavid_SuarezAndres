@@ -66,6 +66,17 @@ Para dar solución a esta problemática, el equipo de desarrollo implementa una 
 * **Bloqueos / Impedimentos reportados:** Ninguno.
 * **Estado del Tablero:** Tarjeta #2 movida a *En Revisión* / *Hecho*; Tarjeta #3 movida a *En Curso*.
 
+#### 📌 Día 4: Módulo de Reportes e Informes (Inicio Sprint 2)
+* **Fecha:** 29 de septiembre de 2026
+* **Moderador:** Scrum Master (Dev 4)
+* **Plan de trabajo y compromisos del día:**
+  * **Dev 1:** Revisará y validará el Pull Request de la Tarjeta #3 para su integración a `main`, y apoyará las pruebas iniciales del módulo de reportes.
+  * **Dev 2:** Desarrollará la lógica en `backend/reportes.py` para consultar y desplegar la lista general de clientes inscritos en consola.
+  * **Dev 3:** Finalizará los ajustes de matrículas y colaborará con Dev 2 en los algoritmos para calcular el aforo y ocupación por disciplina.
+  * **Dev 4 (Scrum Master):** Actualizará la documentación del proyecto en `docs/documentacion.md`, registrará las evidencias del inicio del Sprint 2 y organizará los entregables finales.
+* **Bloqueos / Impedimentos reportados:** El desarrollador 2 (Yeffry) debía solucionar unos problemas de validaciones con la función registrar_cliente reportadas por el desarrollador 1 (Juan Andrés)
+* **Estado del Tablero:** Tarjeta #3 movida a *En Revisión*; Tarjeta #4 movida a *En Curso*; Tarjeta #5 se mantiene *En Curso*.
+
 ---
 
 ## 3. LEVANTAMIENTO DE REQUERIMIENTOS
