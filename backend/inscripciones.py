@@ -40,12 +40,12 @@ def registrar_cliente():
     celular = input("Celular: ")
 
     if celular=="":
-        print ("El celular no puede estar vacio. ")
+        print ("El celular no puede estar vacio y solo puede contener numeros. ")
 
     tel_fijo = input("Telefono_fijo: ").strip()
 
     if tel_fijo=="":
-        print("El Telefono fijo no puede estar vacio, intenta de nuevo.")
+        print("El telefono fijo debe contener solo numeros")
 
     cliente = crear_cliente(id_num, nombres, apellidos, direccion, celular, tel_fijo, riesgo=riesgo)
     clientes.append(cliente)
