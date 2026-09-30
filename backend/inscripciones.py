@@ -9,10 +9,13 @@ def registrar_cliente():
     """
     print("===== REGISTRAR CLIENTE =====")
 
-    id_num = input("ID: ").strip()
-    if id_num == "":
-        print("El ID no puede estar vacio. ")
-        return
+    while True:
+        id_num = input("ID: ").strip()
+        try:
+            int(id_num)
+            break
+        except ValueError:
+            print("El ID solo debe contener numeros. Intenta de nuevo")
 
     for c in clientes:
         if c ["id_num"] == id_num:
@@ -25,27 +28,38 @@ def registrar_cliente():
         riesgo = input("Riesgo (bajo/medio/alto): ").strip().lower()
 
     nombres = input("Nombres: ").strip()
-    apellidos = input("Apellidos: ").strip()
+    while nombres =="" or not nombres.replace(" ","").isalpha():
+        print("Los nombres deben contener solo letras y no pueden estar vacios. ")
+        nombres = input("Nombres: ").strip()
 
-    if nombres == "" or apellidos == "":
-        print("Los nombres y apellidos son obligatorios. Intenta de nuevo.")
-        return
-    
+    apellidos = input("Apellidos: ").strip()
+    while apellidos=="" or not apellidos.replace(" ","").isalpha():
+        print("Los apellidos deben contener solo letras y no pueden estar avcios. ")
+        apellidos = input ("Apellidos: ").strip()
+
     direccion = input("Direccion: ").strip()
 
     if direccion == "":
         print("La direccion no puede estar vacia. ")
         return
-    
-    celular = input("Celular: ")
 
-    if celular=="":
-        print ("El celular no puede estar vacio. ")
 
-    tel_fijo = input("Telefono_fijo: ").strip()
+    while True:
+        celular = input("Celular: ").strip()
+        try:
+            int(celular)
+            break
+        except ValueError:
+            print("El celular solo debe contener numero y no puede estar vacio. ")
 
-    if tel_fijo=="":
-        print("El Telefono fijo no puede estar vacio, intenta de nuevo.")
+
+    while True:
+        tel_fijo = input("Telefono fijo: ").strip()
+        try:
+            int(tel_fijo)
+            break
+        except ValueError:
+            print("El telefono fijp debe contener solo numeros y no puede estar vacio. ")
 
     cliente = crear_cliente(id_num, nombres, apellidos, direccion, celular, tel_fijo, riesgo=riesgo)
     clientes.append(cliente)
