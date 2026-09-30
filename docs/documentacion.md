@@ -6,9 +6,8 @@ Responsable: Desarrollador 4 – Scrum Master
 * Yeffry Vargas (Dev 2)
 * David López (Dev 3)
 * Sara Villanueva Caro (Dev 4)
-**Asignatura:** Scrum y Metodologías ágiles  
-**Institución:** Campuslands  
-**Fecha:** Septiembre de 2026  
+
+**Asignatura:** Scrum y Metodologías ágiles<br>**Docente:** Kevin Johan Jimenez Delgado<br>**Institución:** Campuslands<br>**Grupo asignado:** Grupo 4 - Z1 
 
 ---
 
