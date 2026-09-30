@@ -1,30 +1,99 @@
 # Responsable: Desarrollador 4 – Development Team & Scrum Master
 from modelos import clientes, servicios, matriculas
 
-def listar_clientes_inscritos():
+def listar_clientes_inscritos(clientes):
     """
-    Descripción: Imprime en consola la lista completa de clientes registrados.
-    Dev4: Implementar recorrido e impresión formateada de 'clientes'.
+    Muestra en consola el listado completo de clientes registrados en el sistema.
     """
-    pass
+    print("\n" + "="*50)
+    print("      REPORTE: CLIENTES INSCRITOS")
+    print("="*50)
+    
+    if not clientes:
+        print("No hay clientes registrados en el sistema.")
+        return
 
-def listar_servicios_y_capacidad():
-    """
-    Descripción: Imprime los servicios offered junto con sus cupos ocupados vs la capacidad máxima.
-    Dev4: Implementar recorrido e impresión formateada de 'servicios'.
-    """
-    pass
+    for id_cliente, datos in clientes.items():
+        nombre = datos.get("nombre", "N/A")
+        apellido = datos.get("apellido", "N/A")
+        telefono = datos.get("telefono", "N/A")
+        riesgo = datos.get("nivel_riesgo", "N/A")
+        print(f"• ID: {id_cliente} | Nombre: {nombre} {apellido} | Tel: {telefono} | Riesgo: {riesgo}")
+    
+    print("-" * 50)
 
-def listar_clientes_riesgo_alto():
+def listar_servicios_y_capacidad(servicios):
     """
-    Descripción: Filtra e imprime únicamente los clientes cuya etiqueta de riesgo sea 'alto'.
-    Dev4: Implementar filtro sobre la lista 'clientes'.
+    Muestra la lista de servicios/disciplinas con sus cupos máximos y disponibles.
     """
-    pass
+    print("\n" + "="*50)
+    print("      REPORTE: SERVICIOS Y CAPACIDAD DE AFORO")
+    print("="*50)
+    
+    if not servicios:
+        print("No hay servicios cargados en el sistema.")
+        return
 
-def mostrar_progreso_clientes():
+    for id_servicio, datos in servicios.items():
+        nombre = datos.get("nombre", "N/A")
+        aforo_max = datos.get("aforo_maximo", 0)
+        cupos_disp = datos.get("cupos_disponibles", 0)
+        matriculados = aforo_max - cupos_disp
+        
+        print(f"• {nombre} (ID: {id_servicio})")
+        print(f"  - Capacidad Máxima: {aforo_max} personas")
+        print(f"  - Matriculados: {matriculados} | Cupos Libres: {cupos_disp}")
+    
+    print("-" * 50)
+
+def listar_clientes_riesgo_alto(clientes):
     """
-    Descripción: Despliega la asistencia y el avance físico guardado en las matrículas.
-    Dev4: Implementar recorrido de la lista 'matriculas'.
+    Filtra y muestra únicamente a los clientes clasificados con nivel de riesgo 'Alto'.
     """
-    pass
+    print("\n" + "="*50)
+    print("      REPORTE: CLIENTES DE ALTO RIESGO")
+    print("="*50)
+    
+    if not clientes:
+        print("No hay clientes registrados en el sistema.")
+        return
+
+    encontrados = False
+    for id_cliente, datos in clientes.items():
+        nivel_riesgo = str(datos.get("nivel_riesgo", "")).strip().capitalize()
+        if nivel_riesgo == "Alto":
+            encontrados = True
+            nombre = datos.get("nombre", "N/A")
+            apellido = datos.get("apellido", "N/A")
+            telefono = datos.get("telefono", "N/A")
+            print(f"⚠️ ID: {id_cliente} | Nombre: {nombre} {apellido} | Tel: {telefono}")
+
+    if not encontrados:
+        print("No se encontraron clientes registrados con nivel de riesgo 'Alto'.")
+        
+    print("-" * 50)
+
+def mostrar_progreso_clientes(clientes, matriculas=None):
+    """
+    Muestra el resumen de avance o estado de los clientes (servicios/disciplinas a las que están matriculados).
+    """
+    print("\n" + "="*50)
+    print("      REPORTE: PROGRESO Y SERVICIOS POR CLIENTE")
+    print("="*50)
+    
+    if not clientes:
+        print("No hay clientes registrados en el sistema.")
+        return
+
+    for id_cliente, datos in clientes.items():
+        nombre = datos.get("nombre", "N/A")
+        apellido = datos.get("apellido", "N/A")
+        # Si existe estructura de matrículas dentro del cliente o recibida externamente
+        clases = datos.get("disciplinas_matriculadas", [])
+        if not clases and matriculas and id_cliente in matriculas:
+            clases = matriculas[id_cliente]
+            
+        estado_clases = ", ".join(clases) if clases else "Sin disciplinas matriculadas"
+        print(f"• {nombre} {apellido} (ID: {id_cliente}) -> Inscrito en: {estado_clases}")
+
+    print("-" * 50)
