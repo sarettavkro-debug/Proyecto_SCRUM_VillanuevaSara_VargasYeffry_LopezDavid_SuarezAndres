@@ -22,12 +22,29 @@ def listar_clientes_inscritos(clientes):
     
     print("-" * 50)
 
-def listar_servicios_y_capacidad():
+def listar_servicios_y_capacidad(servicios):
     """
-    Descripción: Imprime los servicios offered junto con sus cupos ocupados vs la capacidad máxima.
-    Dev4: Implementar recorrido e impresión formateada de 'servicios'.
+    Muestra la lista de servicios/disciplinas con sus cupos máximos y disponibles.
     """
-    pass
+    print("\n" + "="*50)
+    print("      REPORTE: SERVICIOS Y CAPACIDAD DE AFORO")
+    print("="*50)
+    
+    if not servicios:
+        print("No hay servicios cargados en el sistema.")
+        return
+
+    for id_servicio, datos in servicios.items():
+        nombre = datos.get("nombre", "N/A")
+        aforo_max = datos.get("aforo_maximo", 0)
+        cupos_disp = datos.get("cupos_disponibles", 0)
+        matriculados = aforo_max - cupos_disp
+        
+        print(f"• {nombre} (ID: {id_servicio})")
+        print(f"  - Capacidad Máxima: {aforo_max} personas")
+        print(f"  - Matriculados: {matriculados} | Cupos Libres: {cupos_disp}")
+    
+    print("-" * 50)
 
 def listar_clientes_riesgo_alto():
     """
