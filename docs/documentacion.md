@@ -1,4 +1,4 @@
-Responsable: Desarrollador 4 – Scrum Master
+
 # PROYECTO: Sistema de Gestión - Gimnasio ForceTech
 
 **Integrantes:**
@@ -19,19 +19,234 @@ Para dar solución a esta problemática, el equipo de desarrollo implementa una 
 
 ---
 
-## 2. MARCO DE TRABAJO SCRUM
+## 2. LEVANTAMIENTO DE REQUERIMIENTOS
 
-### 2.1 Roles del Equipo
-* **Product Owner:** Define y prioriza los requisitos del Gimnasio ForceTech en el Product Backlog.
-* **Scrum Master (Dev 4):** Facilita el proceso SCRUM, remueve bloqueos técnicos y administra el tablero del proyecto.
-* **Development Team (Dev 1, Dev 2, Dev 3, Dev 4):** Encargados de la arquitectura, diseño de modelos, programación de módulos y ejecuciones de prueba.
+El proceso de levantamiento de requerimientos para el sistema ForceTech se llevó a cabo mediante el análisis de las necesidades operativas del gimnasio. Se identificó la urgencia de automatizar el registro de clientes, la asignación de cupos por disciplina y el control en tiempo real del aforo máximo permitido para garantizar la calidad del servicio e identificar clientes con niveles de riesgo alto.
 
-### 2.2 Eventos
+---
+
+## 3. REQUERIMIENTOS 
+
+### 3.1 Requerimientos Funcionales (RF)
+* **RF01 - Gestión de Clientes:** El sistema debe permitir registrar clientes con su ID, nombres, apellidos, dirección, teléfonos de contacto, estado y nivel de riesgo (Alto, Medio, Bajo).
+* **RF02 - Catálogo de Servicios:** El sistema debe permitir consultar y gestionar los 5 servicios ofrecidos y su capacidad máxima.
+* **RF03 - Módulo de Matrículas:** El sistema debe permitir matricular clientes en un servicio verificando que no se supere la capacidad máxima (aforo).
+* **RF04 - Módulo de Reportes:** El sistema debe generar reportes consolidando clientes inscritos, servicios activos, aforo ocupado y usuarios con riesgo alto.
+
+### 3.2 Requerimientos No Funcionales (RNF)
+* **RNF01 - Usabilidad:** Interfaz de consola clara e intuitiva estructurada mediante menús numéricos.
+* **RNF02 - Mantenibilidad:** Código modularizado en archivos independientes (`modelos.py`, `inscripciones.py`, `matriculas.py`, `reportes.py`).
+* **RNF03 - Integridad de Datos:** Validación de tipos de datos y control de redundancia en la memoria del sistema.
+
+---
+
+## 4. HISTORIAS DE USUARIO CON CRITERIOS DE ACEPTACIÓN
+
+A continuación se detallan las Historias de Usuario (HU) definidas para el desarrollo del sistema ForceTech, extraídas del Backlog del proyecto:
+
+### HISTORIA DE USUARIO 01 (Tarjeta #1)
+| Campo | Detalle |
+|---|---|
+| **Prioridad** | Alta |
+| **Código del requerimiento** | RNF01 / RNF02 / RNF03 |
+| **Nombre del requerimiento** | Configuración de Entorno y Arquitectura Base |
+| **Actor** | Equipo de Desarrollo / Scrum Master |
+| **Descripción** | Como equipo de desarrollo quiero configurar el entorno de trabajo inicial y la estructura de archivos base (`backend/`, `docs/`, `tests/`) con el fin de garantizar el orden del proyecto y el control de versiones colaborativo en GitHub. |
+| **Funcionalidad** | Creación del repositorio, configuración de ramas locales/remotas, archivo `.gitignore` e inicialización de la arquitectura de código modular en Python (`modelos.py`, `inscripciones.py`, `matriculas.py`, `reportes.py`). |
+| **Criterios de Aceptación** | 1. El repositorio debe contar con la rama principal `main` y las ramas de trabajo por desarrollador.<br>2. La estructura de carpetas debe separar claramente el código fuente (`backend/`), la documentación (`docs/`) y las pruebas (`tests/`).<br>3. El archivo `.gitignore` debe omitir archivos temporales y entornos virtuales de Python. |
+| **Restricciones** | Ningún desarrollador puede realizar commits o cambios directos sobre la rama `main` sin la aprobación de un Pull Request (PR). |
+
+---
+
+### HISTORIA DE USUARIO 02 (Tarjeta #2)
+| Campo | Detalle |
+|---|---|
+| **Prioridad** | Alta |
+| **Código del requerimiento** | RF01 – Gestión de Clientes |
+| **Nombre del requerimiento** | Módulo de Clientes e Inscripciones |
+| **Actor** | Administrador del Gimnasio |
+| **Descripción** | Como administrador puedo registrar nuevos clientes capturando su información personal con el fin de mantener un control actualizado de los usuarios activos y su nivel de riesgo en el gimnasio. |
+| **Funcionalidad** | Permitir el ingreso de datos en la consola para registrar ID, nombres, apellidos, dirección, teléfonos de contacto, estado y nivel de riesgo (Alto, Medio, Bajo), guardándolos en diccionarios dentro de `backend/inscripciones.py`. |
+| **Criterios de Aceptación** | 1. El sistema debe solicitar y capturar todos los campos obligatorios del cliente mediante la terminal.<br>2. El sistema debe validar que el nivel de riesgo asignado sea únicamente 'Alto', 'Medio' o 'Bajo'.<br>3. El sistema debe confirmar la recepción exitosa guardando el cliente en memoria. |
+| **Restricciones** | El sistema no debe permitir el registro de dos clientes con el mismo ID (control de duplicados). |
+
+---
+
+### HISTORIA DE USUARIO 03 (Tarjeta #3)
+| Campo | Detalle |
+|---|---|
+| **Prioridad** | Alta |
+| **Código del requerimiento** | RF02 – Catálogo de Servicios / RF03 – Módulo de Matrículas |
+| **Nombre del requerimiento** | Módulo de Matrículas y Control de Aforo |
+| **Actor** | Administrador del Gimnasio |
+| **Descripción** | Como administrador puedo matricular a un cliente registrado en alguno de los 5 servicios disponibles con el fin de controlar la asistencia y evitar que se supere la capacidad máxima (aforo). |
+| **Funcionalidad** | Desplegar la lista de servicios con sus cupos disponibles en `backend/matriculas.py`, asociar la matrícula del cliente y actualizar automáticamente la disponibilidad restando un cupo del aforo máximo. |
+| **Criterios de Aceptación** | 1. El sistema debe mostrar el catálogo con los 5 servicios ofrecidos y su capacidad actual.<br>2. Al concretar una matrícula, el sistema debe descontar de inmediato 1 cupo disponible del servicio seleccionado.<br>3. El sistema debe emitir un mensaje de alerta cuando el usuario intente matricular en una clase sin cupos libres. |
+| **Restricciones** | Solo se pueden matricular clientes previamente inscritos en el sistema (RF01) y en servicios cuyos cupos disponibles sean mayores a cero. |
+
+---
+
+### HISTORIA DE USUARIO 04 (Tarjeta #4)
+| Campo | Detalle |
+|---|---|
+| **Prioridad** | Media |
+| **Código del requerimiento** | RF04 – Módulo de Reportes |
+| **Nombre del requerimiento** | Módulo de Reportes e Informes |
+| **Actor** | Administrador del Gimnasio / Entrenador |
+| **Descripción** | Como administrador puedo generar e imprimir reportes consolidados en consola con el fin de evaluar la ocupación general del gimnasio e identificar usuarios con nivel de riesgo alto. |
+| **Funcionalidad** | Recorrer los diccionarios del sistema desde `backend/reportes.py` para listar clientes inscritos, servicios activos, porcentaje/aforo ocupado y un reporte específico de usuarios con riesgo 'Alto'. |
+| **Criterios de Aceptación** | 1. El sistema debe listar la totalidad de los clientes con sus datos personales e información de contacto.<br>2. El sistema debe mostrar la capacidad máxima y los cupos ocupados por cada uno de los servicios.<br>3. El sistema debe ofrecer una opción de filtrado para desplegar de forma independiente los clientes clasificados con nivel de riesgo 'Alto'. |
+| **Restricciones** | Si la base de datos en memoria no cuenta con registros, el sistema debe mostrar una advertencia indicando la ausencia de datos en lugar de arrojar un error de ejecución. |
+
+---
+
+### HISTORIA DE USUARIO 05 (Tarjeta #5)
+| Campo | Detalle |
+|---|---|
+| **Prioridad** | Alta |
+| **Código del requerimiento** | RNF01 / RNF02 / RNF03 |
+| **Nombre del requerimiento** | Documentación SCRUM y Requerimientos |
+| **Actor** | Scrum Master |
+| **Descripción** | Como Scrum Master puedo redactar la documentación metodológica e integrar las evidencias en `docs/documentacion.md` para garantizar la trazabilidad y transparencia del proyecto bajo el marco SCRUM. |
+| **Funcionalidad** | Registrar el planteamiento del problema, requerimientos (RF y RNF), Historias de Usuario, bitácoras de Daily Stand-ups y capturas de pantalla del flujo de trabajo en el tablero Kanban (Días 1 a 5). |
+| **Criterios de Aceptación** | 1. El archivo `docs/documentacion.md` debe estar estructurado según el índice oficial de la guía.<br>2. Debe incluir las 6 Historias de Usuario con sus respectivos criterios de aceptación y restricciones.<br>3. Debe evidenciar la evolución del tablero Kanban día por día mediante imágenes y descripciones detalladas. |
+| **Restricciones** | La documentación debe mantenerse actualizada de forma diaria al cierre de cada jornada de trabajo. |
+
+---
+
+### HISTORIA DE USUARIO 06 (Tarjeta #6)
+| Campo | Detalle |
+|---|---|
+| **Prioridad** | Media |
+| **Código del requerimiento** | RNF01 – Usabilidad / RNF03 – Integridad de Datos |
+| **Nombre del requerimiento** | Integración Final y Pruebas del Sistema |
+| **Actor** | Equipo de Desarrollo / QA |
+| **Descripción** | Como equipo de desarrollo queremos integrar todos los módulos en el ejecutable principal (`main.py`) y validar la matriz de pruebas (CP01-CP08) para entregar un sistema funcional y libre de fallas. |
+| **Funcionalidad** | Unificar `inscripciones.py`, `matriculas.py` y `reportes.py` en un menú numérico en consola (RNF01) y registrar los casos de prueba superados en `tests/pruebas.md`. |
+| **Criterios de Aceptación** | 1. El menú en `main.py` debe permitir navegar por todas las funciones del sistema usando opciones numéricas.<br>2. El sistema debe validar las entradas incorrectas o vacías del usuario sin interrumpir ni cerrar el programa.<br>3. Los 8 Casos de Prueba (CP01 al CP08) deben estar documentados y evaluados como aprobados en `tests/pruebas.md`. |
+| **Restricciones** | La integración final solo se dará por concluida cuando todas las ramas se hayan fusionado en `main` sin conflictos de código. |
+
+---
+
+## 5. METODOLOGÍA (MARCO DE TRABAJO SCRUM)
+
+El desarrollo de la aplicación para el Gimnasio ForceTech se gestiona mediante la metodología ágil SCRUM, organizada en un ciclo de desarrollo de 5 días con 2 Sprints operativos.
+
+### 5.1 Definición de Roles
+
+* **Product Owner:** Encargado de priorizar el Product Backlog y definir los criterios de aceptación para las funcionalidades del gimnasio.
+* **Scrum Master (Sara Villanueva):** Lidera la gestión del tablero en GitHub Projects, facilita los Daily Stand-ups, remueve bloqueos técnicos, coordina la integración del equipo y apoya el desarrollo técnico.
+* **Equipo de Desarrollo (Developers):**
+  * **Juan Andrés Suárez (Dev 1):** Arquitectura base y modelos (`backend/modelos.py`).
+  * **Yeffry Vargas (Dev 2):** Módulo de inscripciones y registro de clientes (`backend/inscripciones.py`).
+  * **David López (Dev 3):** Módulo de matrículas y control de aforo (`backend/matriculas.py`).
+  * **Sara Villanueva (Dev 4):** Módulo de reportes (`backend/reportes.py`) y consolidación de la documentación oficial.
+
+### 5.2 Eventos
+
 * **Sprint Planning:** Definición del alcance e historias de usuario seleccionadas para cada Sprint.
 * **Daily Stand-up:** Reuniones diarias de 10 minutos para revisar avances en el tablero Kanban y coordinar integraciones.
 * **Sprint Review & Retrospective:** Demostración del incremento funcional e identificación de mejoras para la siguiente iteración.
 
-### 2.3 Seguimiento Diario (Daily Stand-ups)
+### 5.3 Artefactos
+
+* **Product Backlog:** Lista priorizada que contiene la totalidad de los requerimientos funcionales y no funcionales del Gimnasio ForceTech (RF01 a RF04 y RNF01 a RNF03), representada en las Historias de Usuario iniciales.
+* **Sprint Backlog:** Conjunto de tareas e historias de usuario seleccionadas específicamente desde el Product Backlog para ejecutarse durante los Sprints del proyecto, asignadas individualmente en el tablero Kanban.
+* **Increment:** La versión funcional del software entregada al final de cada Sprint. En el proyecto corresponde al sistema ejecutable en Python (`main.py`) integrado con sus módulos y la documentación oficial finalizada.
+
+---
+
+## 6. EVIDENCIA DE PLANTEAMIENTO DE PLATAFORMA DE TRABAJO
+
+### 6.1 Estructura del Tablero Kanban (GitHub Projects)
+El proyecto cuenta con un tablero Kanban configurado con 5 estados de flujo de trabajo:
+1. **Reserva (Backlog):** Tareas pendientes para Sprints futuros.
+2. **Por Hacer (Sprint Backlog):** Tareas priorizadas para el Sprint activo.
+3. **En Curso (In Progress):** Tareas en desarrollo activo.
+4. **En Revisión (In Review):** Tareas pendientes de verificación o Pull Request.
+5. **Hecho (Done):** Tareas finalizadas y probadas.
+
+### 6.2 Capturas y Estado del Tablero (Día 1)
+
+![Captura](<../Imagenes/Kanban dia 1 actualizado.0.png>)
+
+* **Organización por Sprints:**
+  * **Sprint 1 (Días 1 a 3):** Enfocado en configuración, modelos de datos, inscripciones de clientes y matrículas con control de aforo.
+  * **Sprint 2 (Días 4 y 5):** Enfocado en generación de reportes, pruebas cruzadas e integración final.
+* **Metadatos asignados:** Cada tarjeta cuenta con sus respectivos responsables (*Assignees*), etiquetas de clasificación (`backend`, `documentation`, `setup`, `testing`) y la iteración asignada.
+
+Al finalizar el Día 1, el tablero Kanban refleja el inicio de las actividades y la preparación de la arquitectura base del proyecto para el Sprint 1:
+
+* **Reserva (Backlog):** Se mantienen aisladas las tarjetas **#4** (Módulo de Reportes e Informes) y **#6** (Integración Final y Pruebas del Sistema), reservadas para su ejecución en el Sprint 2.
+* **Por Hacer (Sprint Backlog):** Tarjetas **#2** (Módulo de Clientes e Inscripciones) y **#3** (Módulo de Matrículas y Aforo), priorizadas y preparadas para iniciar su desarrollo técnico en los siguientes días del Sprint 1.
+* **En Curso (In Progress):** Tarjeta **#5** (Documentación SCRUM y Requerimientos), asignada a **Dev 4** para la elaboración de la estructura documental, requerimientos y bitácoras del proyecto.
+* **En Revisión (In Review):** Columna despejada sin elementos pendientes de validación.
+* **Hecho (Done)** Tarjeta **#1** (Configuración de Entorno y Arquitectura Base), completada exitosamente al dejar lista la estructura inicial de repositorio, ramas y carpetas del proyecto.
+
+### 6.3 Evidencias del Tablero - Día 2
+
+![Captura 2](<../Imagenes/Kanban día 2 actualizado.png>)
+
+Al finalizar el Día 2, el tablero Kanban refleja el inicio de los trabajos de desarrollo técnico del Sprint 1:
+
+* **Reserva (Backlog):** Se mantienen las tarjetas #4 (Reportes) y #6 (Integración final) asignadas para el Sprint 2.
+* **Por Hacer (Sprint Backlog):** Tarjeta #3 (Módulo de Matrículas) lista para el Día 3.
+* **En Curso (In Progress):** Tarjeta #2 (Módulo de Usuarios e Inscripciones) en desarrollo activo por Dev 2 y Dev 1. Tarjeta #5 (Documentación y Requerimientos por Dev 4).
+* **Hecho (Done):** Tarjeta #1 (Configuración de entorno).
+
+### 6.4 Evidencias del Tablero - Día 3 (Módulo de Matrículas y Control de Aforo)
+
+![Captura 3](<../Imagenes/Kanban día 3.png>)
+
+Al finalizar el Día 3, el tablero en GitHub Projects evidencia el avance y la culminación del desarrollo técnico correspondiente al **Sprint 1**:
+
+* **Reserva (Backlog):** Se mantienen aisladas las Tarjetas **#4** (Módulo de Reportes) y **#6** (Integración final y entrega), las cuales se activarán al inicio del Sprint 2 (Días 4 y 5).
+* **Reserva (Backlog):** Columna despejada debido a que todas las historias del Sprint 1 han pasado a fase de ejecución o revisión.
+* **Por Hacer (Sprint Backlog):** 
+  * **Tarjeta #3 (Módulo de Matrículas y Control de Aforo):** Asignada a **Dev 3**, enfocada en la programación de la lógica en `backend/matriculas.py` para la validación de cupos máximos por disciplina.
+* **En Revisión (In Review):** 
+  * **Tarjeta #2 (Módulo de Inscripciones y Clientes):** Asignada a **Dev 2**, en proceso de revisión de código y validación del Pull Request hacia la rama principal (`main`).
+  * **Tarjeta #5:** Documentación técnica, Requerimientos (RF/RNF) y gestión del marco SCRUM por el Scrum Master (Dev 4).
+* **Hecho (Done):** 
+  * **Tarjeta #1:** Configuración inicial del proyecto y entorno de trabajo.
+
+### 6.5 Evidencias del Tablero - Día 4 (Módulo de Reportes e Informes)
+
+![captura 4](<../Imagenes/Kanban día 4.png>)
+
+Al iniciar el Día 4, el tablero en GitHub Projects evidencia la transición y el arranque del desarrollo técnico correspondiente al **Sprint 2**:
+
+* **Reserva (Backlog):** Columna despejada debido a que todas las historias de usuario del proyecto han sido priorizadas y movidas al flujo de trabajo del Sprint 2.
+* **Por Hacer (Sprint Backlog):** 
+  * **Tarjeta #6 (Integración Final y Pruebas del Sistema):** Pendiente a la espera de finalizar la lógica del módulo de reportes para realizar la integración integral del programa.
+* **En Curso (In Progress):**
+  * **Tarjeta #4 (Módulo de Reportes e Informes):** Asignada a **Dev 2** y **Dev 3**, enfocada en la programación de los algoritmos de consulta para mostrar la lista de clientes y el estado de ocupación por disciplina en consola.
+  * **Tarjeta #5:** Documentación técnica, Requerimientos (RF/RNF) y gestión del marco SCRUM por el Scrum Master (**Dev 4**).
+* **En Revisión (In Review):**
+  * **Tarjeta #3 (Módulo de Matrículas y Control de Aforo):** Asignada a **Dev 3**, en proceso de revisión de código y validación del Pull Request hacia la rama principal (`main`) por parte de **Dev 1**.
+* **Hecho (Done):**
+  * **Tarjeta #1:** Configuración inicial del proyecto y entorno de trabajo.
+  * **Tarjeta #2 (Módulo de Inscripciones y Clientes):** Integrada exitosamente en la rama principal (`main`).
+
+### 6.6 Evidencias del Tablero - Día 5 (Cierre del Sprint 2 y Entrega Final)
+
+![Captura día 5](<../Imagenes/Tablero de kanban ultimo dia .png>)
+
+Al finalizar el Día 5, el tablero Kanban en GitHub Projects evidencia el cumplimiento total del alcance del proyecto y la culminación del **Sprint 2**:
+
+* **Reserva (Backlog):** Columna despejada.
+* **Por hacer:** Columna despejada.
+* **En curso:** Columna despejada.
+* **En revisión:** Columna despejada debido a que todos los Pull Requests han sido aprobados e integrados a la rama principal (`main`).
+* **Hecho:** 
+  * **Tarjeta #1:** Configuración inicial del proyecto y entorno de trabajo.
+  * **Tarjeta #2 (Módulo de Inscripciones y Clientes):** Integrada y probada en `main`.
+  * **Tarjeta #3 (Módulo de Matrículas y Control de Aforo):** Integrada y probada en `main`.
+  * **Tarjeta #4 (Módulo de Reportes e Informes):** Programada e integrada exitosamente.
+  * **Tarjeta #5 (Documentación y Marco SCRUM):** Documento final `docs/documentacion.md` completado con historias de usuario, requerimientos y bitácoras.
+  * **Tarjeta #6 (Integración Final y Pruebas del Sistema):** Menú interactivo ensamblado en `main.py`, pruebas (CP01-CP08) superadas y `README.md` finalizado.
+
+## 6.1. Bitácora de Seguimiento Diario (Daily Stand-ups)
 
 #### 📌 Día 1: Configuración y Arquitectura Base
 * **Fecha:** 26 de septiembre de 2026
@@ -76,185 +291,13 @@ Para dar solución a esta problemática, el equipo de desarrollo implementa una 
 * **Bloqueos / Impedimentos reportados:** El desarrollador 2 (Yeffry) debía solucionar unos problemas de validaciones con la función registrar_cliente reportadas por el desarrollador 1 (Juan Andrés)
 * **Estado del Tablero:** Tarjeta #3 movida a *En Revisión*; Tarjeta #4 movida a *En Curso*; Tarjeta #5 se mantiene *En Curso*.
 
----
-
-## 3. LEVANTAMIENTO DE REQUERIMIENTOS
-
-### 3.1 Requerimientos Funcionales (RF)
-* **RF01 - Gestión de Clientes:** El sistema debe permitir registrar clientes con su ID, nombres, apellidos, dirección, teléfonos de contacto, estado y nivel de riesgo (Alto, Medio, Bajo).
-* **RF02 - Catálogo de Servicios:** El sistema debe permitir consultar y gestionar los 5 servicios ofrecidos y su capacidad máxima.
-* **RF03 - Módulo de Matrículas:** El sistema debe permitir matricular clientes en un servicio verificando que no se supere la capacidad máxima (aforo).
-* **RF04 - Módulo de Reportes:** El sistema debe generar reportes consolidando clientes inscritos, servicios activos, aforo ocupado y usuarios con riesgo alto.
-
-### 3.2 Requerimientos No Funcionales (RNF)
-* **RNF01 - Usabilidad:** Interfaz de consola clara e intuitiva estructurada mediante menús numéricos.
-* **RNF02 - Mantenibilidad:** Código modularizado en archivos independientes (`modelos.py`, `inscripciones.py`, `matriculas.py`, `reportes.py`).
-* **RNF03 - Integridad de Datos:** Validación de tipos de datos y control de redundancia en la memoria del sistema.
-
----
-
-## 4. METODOLOGÍA SCRUM Y ROLES
-
-El desarrollo de la aplicación para el Gimnasio ForceTech se gestiona mediante la metodología ágil **SCRUM**, organizada en un ciclo de desarrollo de 5 días con 2 Sprints operativos.
-
-### 4.1 Definición de Roles
-* **Product Owner:** Encargado de priorizar el Product Backlog y definir los criterios de aceptación para las funcionalidades del gimnasio.
-* **Scrum Master (Dev 4):** Lidera la gestión del tablero en GitHub Projects, facilita los Daily Stand-ups, remueve bloqueos técnicos y coordina la integración del equipo.
-* **Equipo de Desarrollo (Dev 1, Dev 2, Dev 3, Dev 4):**
-  * **Dev 1:** Arquitectura base y modelos (`backend/modelos.py`).
-  * **Dev 2:** Módulo de inscripciones y registro de clientes (`backend/inscripciones.py`).
-  * **Dev 3:** Módulo de matrículas y control de aforo (`backend/matriculas.py`).
-  * **Dev 4:** Módulo de reportes (`backend/reportes.py`) y documentación oficial.
-
-### 4.2 Artefactos y Eventos
-* **Product Backlog:** Listado de las 6 User Stories/Tarjetas principales creadas en GitHub Projects.
-* **Sprint Backlog:** Selección de tareas asignadas para la iteración actual.
-* **Daily Stand-up:** Sincronización diaria de 10 minutos para revisar el estado del tablero Kanban.
-
----
-
-## 5. EVIDENCIAS DEL TABLERO VIRTUAL
-
-### 5.1 Estructura del Tablero Kanban (GitHub Projects)
-El proyecto cuenta con un tablero Kanban configurado con 5 estados de flujo de trabajo:
-1. **Reserva (Backlog):** Tareas pendientes para Sprints futuros.
-2. **Por Hacer (Sprint Backlog):** Tareas priorizadas para el Sprint activo.
-3. **En Curso (In Progress):** Tareas en desarrollo activo.
-4. **En Revisión (In Review):** Tareas pendientes de verificación o Pull Request.
-5. **Hecho (Done):** Tareas finalizadas y probadas.
-
-### 5.2 Capturas y Estado del Tablero (Día 1)
-
-![Captura](<../Imagenes/Kanban dia 1 actualizado.0.png>)
-
-* **Organización por Sprints:**
-  * **Sprint 1 (Días 1 a 3):** Enfocado en configuración, modelos de datos, inscripciones de clientes y matrículas con control de aforo.
-  * **Sprint 2 (Días 4 y 5):** Enfocado en generación de reportes, pruebas cruzadas e integración final.
-* **Metadatos asignados:** Cada tarjeta cuenta con sus respectivos responsables (*Assignees*), etiquetas de clasificación (`backend`, `documentation`, `setup`, `testing`) y la iteración asignada.
-
-### 5.3 Evidencias del Tablero - Día 2
-
-![Captura 2](<../Imagenes/Kanban día 2 actualizado.png>)
-
-Al finalizar el Día 2, el tablero Kanban refleja el inicio de los trabajos de desarrollo técnico del Sprint 1:
-
-* **Reserva (Backlog):** Se mantienen las tarjetas #4 (Reportes) y #6 (Integración final) asignadas para el Sprint 2.
-* **Por hacer:** Tarjeta #3 (Módulo de Matrículas) lista para el Día 3.
-* **En curso:** Tarjeta #2 (Módulo de Usuarios e Inscripciones) en desarrollo activo por Dev 2 y Dev 1. Tarjeta #5 (Documentación y Requerimientos por Dev 4).
-* **Hecho:** Tarjeta #1 (Configuración de entorno).
-
-### 5.4 Evidencias del Tablero - Día 3 (Módulo de Matrículas y Control de Aforo)
-
-![Captura 3](<../Imagenes/Kanban día 3.png>)
-
-Al finalizar el Día 3, el tablero en GitHub Projects evidencia el avance y la culminación del desarrollo técnico correspondiente al **Sprint 1**:
-
-* **Reserva (Backlog):** Se mantienen aisladas las Tarjetas **#4** (Módulo de Reportes) y **#6** (Integración final y entrega), las cuales se activarán al inicio del Sprint 2 (Días 4 y 5).
-* **Por hacer:** Columna despejada debido a que todas las historias del Sprint 1 han pasado a fase de ejecución o revisión.
-* **En curso:** 
-  * **Tarjeta #3 (Módulo de Matrículas y Control de Aforo):** Asignada a **Dev 3**, enfocada en la programación de la lógica en `backend/matriculas.py` para la validación de cupos máximos por disciplina.
-* **En revisión:** 
-  * **Tarjeta #2 (Módulo de Inscripciones y Clientes):** Asignada a **Dev 2**, en proceso de revisión de código y validación del Pull Request hacia la rama principal (`main`).
-    * **Tarjeta #5:** Documentación técnica, Requerimientos (RF/RNF) y gestión del marco SCRUM por el Scrum Master (Dev 4).
-* **Hecho:** 
-  * **Tarjeta #1:** Configuración inicial del proyecto y entorno de trabajo.
-
-### 5.5 Evidencias del Tablero - Día 4 (Módulo de Reportes e Informes)
-
-![captura 4](<../Imagenes/Kanban día 4.png>)
-
-Al iniciar el Día 4, el tablero en GitHub Projects evidencia la transición y el arranque del desarrollo técnico correspondiente al **Sprint 2**:
-
-* **Reserva (Backlog):** Columna despejada debido a que todas las historias de usuario del proyecto han sido priorizadas y movidas al flujo de trabajo del Sprint 2.
-* **Por hacer:** 
-  * **Tarjeta #6 (Integración Final y Pruebas del Sistema):** Pendiente a la espera de finalizar la lógica del módulo de reportes para realizar la integración integral del programa.
-* **En curso:**
-  * **Tarjeta #4 (Módulo de Reportes e Informes):** Asignada a **Dev 2** y **Dev 3**, enfocada en la programación de los algoritmos de consulta para mostrar la lista de clientes y el estado de ocupación por disciplina en consola.
-  * **Tarjeta #5:** Documentación técnica, Requerimientos (RF/RNF) y gestión del marco SCRUM por el Scrum Master (**Dev 4**).
-* **En revisión:**
-  * **Tarjeta #3 (Módulo de Matrículas y Control de Aforo):** Asignada a **Dev 3**, en proceso de revisión de código y validación del Pull Request hacia la rama principal (`main`) por parte de **Dev 1**.
-* **Hecho:**
-  * **Tarjeta #1:** Configuración inicial del proyecto y entorno de trabajo.
-  * **Tarjeta #2 (Módulo de Inscripciones y Clientes):** Integrada exitosamente en la rama principal (`main`).
-
-## 6. Historias de Usuario y Criterios de Aceptación
-
-A continuación se detallan las Historias de Usuario (HU) definidas para el desarrollo del sistema ForceTech, extraídas del Backlog del proyecto:
-
-## Historia de Usuario 01
-
-| Campo | Detalle |
-|---|---|
-| **Prioridad** | Alta |
-| **Código del requerimiento** | RF01 |
-| **Nombre del requerimiento** | Configuración de Entorno y Arquitectura Base |
-| **Actor** | Desarrollador / Scrum Master |
-| **Descripción** | Como desarrollador quiero configurar la estructura base del repositorio en GitHub y el entorno local para permitir el desarrollo colaborativo y modular del sistema ForceTech. |
-| **Funcionalidad** | Establecer la arquitectura de archivos del proyecto, las ramas de Git (`main` y ramas por desarrollador) e inicializar las carpetas `backend/` y `docs/` con sus respectivos archivos borrador. |
-| **Criterios de Aceptación** | 1. El sistema y repositorio deben contar con la rama principal `main` y ramas independientes configuradas por desarrollador.<br>2. El archivo `.gitignore` debe incluir las excepciones requeridas para proyectos en Python.<br>3. La estructura de carpetas debe reflejar la separación entre código fuente (`backend/`) y documentación (`docs/`). |
-| **Restricciones** | Ningún desarrollador debe hacer commits directos a la rama `main` sin la aprobación previa de un Pull Request (PR) por parte de otro integrante. |
-
-## Historia de Usuario 02
-
-| Campo | Detalle |
-|---|---|
-| **Prioridad** | Alta |
-| **Código del requerimiento** | RF03 |
-| **Nombre del requerimiento** | Módulo de Matrículas y Control de Aforo |
-| **Actor** | Administrador del Gimnasio |
-| **Descripción** | Como administrador puedo matricular a un cliente previamente inscrito en una disciplina específica con el fin de controlar la asistencia y garantizar que no se supere el aforo máximo permitido. |
-| **Funcionalidad** | Consultar la lista de disciplinas disponibles (Yoga, Pilates, Piscina, etc.), verificar la cantidad de cupos disponibles y asociar la matrícula del cliente disminuyendo en 1 la capacidad disponible. |
-| **Criterios de Aceptación** | 1. El sistema debe mostrar el listado de disciplinas con su respectivo aforo antes de confirmar la matrícula.<br>2. El sistema debe descontar un cupo automáticamente al completarse una matrícula.<br>3. El sistema debe emitir un mensaje de alerta en consola cuando la disciplina no cuente con cupos disponibles. |
-| **Restricciones** | No se permite el registro de dos clientes con el mismo número de documento de identidad (ID único). |
-
-## Historia de Usuario 03
-
-| Campo | Detalle |
-|---|---|
-| **Prioridad** | Alta |
-| **Código del requerimiento** | RF03 |
-| **Nombre del requerimiento** | Módulo de Matrículas y Control de Aforo |
-| **Actor** | Administrador del Gimnasio |
-| **Descripción** | Como administrador puedo matricular a un cliente previamente inscrito en una disciplina específica con el fin de controlar la asistencia y garantizar que no se supere el aforo máximo permitido. |
-| **Funcionalidad** | Consultar la lista de disciplinas disponibles (Yoga, Pilates, Piscina, etc.), verificar la cantidad de cupos disponibles y asociar la matrícula del cliente disminuyendo en 1 la capacidad disponible. |
-| **Criterios de Aceptación** | 1. El sistema debe mostrar el listado de disciplinas con su respectivo aforo antes de confirmar la matrícula.<br>2. El sistema debe descontar un cupo automáticamente al completarse una matrícula.<br>3. El sistema debe emitir un mensaje de alerta en consola cuando la disciplina no cuente con cupos disponibles. |
-| **Restricciones** | Un cliente solo puede matricularse en una disciplina si ha sido registrado previamente en el sistema y si la disciplina cuenta con cupos mayores a cero. |
-
-## Historia de Usuario 04
-
-| Campo | Detalle |
-|---|---|
-| **Prioridad** | Media |
-| **Código del requerimiento** | RF04 |
-| **Nombre del requerimiento** | Módulo de Reportes e Informes |
-| **Actor** | Administrador del Gimnasio |
-| **Descripción** | Como administrador puedo consultar e imprimir reportes generales en consola con el fin de conocer el estado de ocupación del gimnasio y el listado de clientes activos. |
-| **Funcionalidad** | Recorrer los diccionarios de datos del sistema para formatear y presentar en pantalla listas consolidadas de clientes inscritos, disciplinas con mayor demanda y niveles de aforo actualizados. |
-| **Criterios de Aceptación** | 1. El sistema debe listar la totalidad de los clientes con su respectiva información personal.<br>2. El sistema debe mostrar el conteo de clientes matriculados por cada disciplina.<br>3. El sistema debe mostrar el porcentaje o cantidad de aforo disponible por clase. |
-| **Restricciones** | Si no existen clientes registrados o disciplinas creadas, el sistema debe indicar mediante un mensaje claro que no hay datos para generar el reporte. |
-
-## Historia de Usuario 05
-
-| Campo | Detalle |
-|---|---|
-| **Prioridad** | Alta |
-| **Código del requerimiento** | RF05 |
-| **Nombre del requerimiento** | Gestión de Documentación SCRUM y Requerimientos |
-| **Actor** | Scrum Master |
-| **Descripción** | Como Scrum Master puedo redactar las especificaciones del sistema y actualizar la bitácora del proyecto con el fin de mantener un registro formal del avance bajo la metodología agil. |
-| **Funcionalidad** | Mantener actualizado el archivo `docs/documentacion.md` registrando requerimientos (RF/RNF), historias de usuario, actas de las reuniones diarias (Daily Stand-ups) y capturas del tablero Kanban. |
-| **Criterios de Aceptación** | 1. El documento debe contener la especificación de Requerimientos Funcionales y No Funcionales.<br>2. El documento debe incluir las bitácoras diarias de cada jornada de trabajo.<br>3. El documento debe respaldar los cambios con las capturas de pantalla del tablero GitHub Projects. |
-| **Restricciones** | La documentación debe actualizarse diariamente al finalizar la jornada y no se permite acumular avances de múltiples días sin registrar. |
-
-## Historia de Usuario 06
-
-| Campo | Detalle |
-|---|---|
-| **Prioridad** | Media |
-| **Código del requerimiento** | RF06 |
-| **Nombre del requerimiento** | Integración Final y Pruebas del Sistema |
-| **Actor** | Equipo de Desarrollo |
-| **Descripción** | Como equipo de desarrollo podemos integrar todos los módulos programados en el menú interactivo principal (`main.py`) con el fin de validar el correcto funcionamiento general del software antes de la entrega. |
-| **Funcionalidad** | Unificar las funciones de `backend/inscripciones.py` y `backend/matriculas.py` en un menú en consola funcional, ejecutando casos de prueba integrales. |
-| **Criterios de Aceptación** | 1. El archivo `main.py` debe permitir la navegación fluida entre todas las opciones del menú.<br>2. Las ramas de los desarrolladores deben integrarse sin conflictos hacia la rama `main`.<br>3. El programa debe gestionar los errores de entrada del usuario sin cerrarse inesperadamente. |
-| **Restricciones** | La integración final solo se realizará cuando las pruebas individuales de cada módulo hayan sido validadas y aprobadas por el equipo. |
+#### 📌 Día 5: Integración Final, Pruebas y Cierre del Proyecto (Sprint 2)
+* **Fecha:** 30 de septiembre de 2026
+* **Moderador:** Scrum Master (Dev 4)
+* **Plan de trabajo y compromisos del día:**
+  * **Dev 1:** Ejecutará y documentará la matriz de casos de prueba (CP01 a CP08) en `tests/pruebas.md`, realizando la revisión final del código e integración a `main`.
+  * **Dev 2:** Apoyará la revisión del archivo principal (`main.py`) para asegurar que las opciones del menú invocan correctamente los módulos de inscripciones.
+  * **Dev 3:** Validará la correcta interacción entre la asignación de cupos y las alertas de aforo máximo en el menú consolidado del programa.
+  * **Dev 4 (Scrum Master):** Finalizará la redacción del archivo `README.md`, consolidará la documentación oficial en `docs/documentacion.md` con las bitácoras y capturas finales, y verificará que el tablero Kanban tenga el 100% de las tarjetas en la columna *Hecho*.
+* **Bloqueos / Impedimentos reportados:** Ninguno.
+* **Estado del Tablero:** Tarjetas #3, #4, #5 y #6 aprobadas en revisión y movidas exitosamente a la columna *Hecho (Done)*. El 100% de las historias de usuario del proyecto han sido completadas.
