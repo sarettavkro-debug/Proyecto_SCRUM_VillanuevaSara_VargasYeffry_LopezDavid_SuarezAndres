@@ -9,10 +9,13 @@ def registrar_cliente():
     """
     print("===== REGISTRAR CLIENTE =====")
 
-    id_num = input("ID: ").strip()
-    if id_num == "":
-        print("El ID no puede estar vacio. ")
-        return
+    while True:
+        id_num = input("ID: ").strip()
+        try:
+            int(id_num)
+            break
+        except ValueError:
+            print("El ID solo debe contener numeros. Intenta de nuevo")
 
     for c in clientes:
         if c ["id_num"] == id_num:
@@ -27,7 +30,7 @@ def registrar_cliente():
     nombres = input("Nombres: ").strip()
     while nombres =="" or not nombres.replace(" ","").isalpha():
         print("Los nombres deben contener solo letras y no pueden estar vacios. ")
-        nombres = input("Nombres: ").strip
+        nombres = input("Nombres: ").strip()
 
     apellidos = input("Apellidos: ").strip()
     while apellidos=="" or not apellidos.replace(" ","").isalpha():
@@ -40,7 +43,6 @@ def registrar_cliente():
         print("La direccion no puede estar vacia. ")
         return
 
-    celular = input("Celular: ")
 
     while True:
         celular = input("Celular: ").strip()
@@ -50,7 +52,6 @@ def registrar_cliente():
         except ValueError:
             print("El celular solo debe contener numero y no puede estar vacio. ")
 
-    tel_fijo = input("Telefono_fijo: ").strip()
 
     while True:
         tel_fijo = input("Telefono fijo: ").strip()
