@@ -52,8 +52,13 @@ def registrar_cliente():
 
     tel_fijo = input("Telefono_fijo: ").strip()
 
-    if tel_fijo=="":
-        print("El telefono fijo debe contener solo numeros")
+    while True:
+        tel_fijo = input("Telefono fijo: ").strip()
+        try:
+            int(tel_fijo)
+            break
+        except ValueError:
+            print("El telefono fijp debe contener solo numeros y no puede estar vacio. ")
 
     cliente = crear_cliente(id_num, nombres, apellidos, direccion, celular, tel_fijo, riesgo=riesgo)
     clientes.append(cliente)
