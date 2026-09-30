@@ -25,12 +25,11 @@ def registrar_cliente():
         riesgo = input("Riesgo (bajo/medio/alto): ").strip().lower()
 
     nombres = input("Nombres: ").strip()
+    while nombres =="" or not nombres.replace(" ","").isalpha():
+        print("Los nombres deben contener solo letras y no pueden estar vacios. ")
+
     apellidos = input("Apellidos: ").strip()
 
-    if nombres == "" or apellidos == "":
-        print("Los nombres y apellidos son obligatorios. Intenta de nuevo.")
-        return
-    
     direccion = input("Direccion: ").strip()
 
     if direccion == "":
