@@ -46,16 +46,36 @@ def listar_servicios_y_capacidad(servicios):
     
     print("-" * 50)
 
-def listar_clientes_riesgo_alto():
+def listar_clientes_riesgo_alto(clientes):
     """
-    Descripción: Filtra e imprime únicamente los clientes cuya etiqueta de riesgo sea 'alto'.
-    Dev4: Implementar filtro sobre la lista 'clientes'.
+    Filtra y muestra únicamente a los clientes clasificados con nivel de riesgo 'Alto'.
     """
-    pass
+    print("\n" + "="*50)
+    print("      REPORTE: CLIENTES DE ALTO RIESGO")
+    print("="*50)
+    
+    if not clientes:
+        print("No hay clientes registrados en el sistema.")
+        return
+
+    encontrados = False
+    for id_cliente, datos in clientes.items():
+        nivel_riesgo = str(datos.get("nivel_riesgo", "")).strip().capitalize()
+        if nivel_riesgo == "Alto":
+            encontrados = True
+            nombre = datos.get("nombre", "N/A")
+            apellido = datos.get("apellido", "N/A")
+            telefono = datos.get("telefono", "N/A")
+            print(f"⚠️ ID: {id_cliente} | Nombre: {nombre} {apellido} | Tel: {telefono}")
+
+    if not encontrados:
+        print("No se encontraron clientes registrados con nivel de riesgo 'Alto'.")
+        
+    print("-" * 50)
 
 def mostrar_progreso_clientes():
     """
     Descripción: Despliega la asistencia y el avance físico guardado en las matrículas.
     Dev4: Implementar recorrido de la lista 'matriculas'.
-    """
+    """ 
     pass
