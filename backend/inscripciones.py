@@ -54,7 +54,9 @@ def registrar_cliente():
 
 
     while True:
-        tel_fijo = input("Telefono fijo: ").strip()
+        tel_fijo = input("Telefono fijo (opcinal, precione Entre para omitir): ").strip()
+        if tel_fijo=="":
+            break
         try:
             int(tel_fijo)
             break
