@@ -26,9 +26,26 @@ def registrar_cliente():
 
     nombres = input("Nombres: ").strip()
     apellidos = input("Apellidos: ").strip()
+
+    if nombres == "" or apellidos == "":
+        print("Los nombres y apellidos son obligatorios. Intenta de nuevo.")
+        return
+    
     direccion = input("Direccion: ").strip()
+
+    if direccion == "":
+        print("La direccion no puede estar vacia. ")
+        return
+    
     celular = input("Celular: ")
+
+    if celular=="":
+        print ("El celular no puede estar vacio. ")
+
     tel_fijo = input("Telefono_fijo: ").strip()
+
+    if tel_fijo=="":
+        print("El Telefono fijo no puede estar vacio, intenta de nuevo.")
 
     cliente = crear_cliente(id_num, nombres, apellidos, direccion, celular, tel_fijo, riesgo=riesgo)
     clientes.append(cliente)
@@ -43,8 +60,10 @@ def cargar_servicios_iniciales():
     """
 
     if len(servicios) > 0:
-        servicios.append(crear_servicio(1, "Yoga", 15))
-        servicios.append(crear_servicio(2, "Pilates", 12))
-        servicios.append(crear_servicio(3, "Entrenamiento personalizado", 5))
-        servicios.append(crear_servicio(4, "Piscina", 20))
-        servicios.append(crear_servicio(5, "Gimnasio general", 30))
+        return
+    
+    servicios.append(crear_servicio(1, "Yoga", 15))
+    servicios.append(crear_servicio(2, "Pilates", 12))
+    servicios.append(crear_servicio(3, "Entrenamiento personalizado", 5))
+    servicios.append(crear_servicio(4, "Piscina", 20))
+    servicios.append(crear_servicio(5, "Gimnasio general", 30))
