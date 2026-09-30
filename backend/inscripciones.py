@@ -27,7 +27,7 @@ def registrar_cliente():
     nombres = input("Nombres: ").strip()
     while nombres =="" or not nombres.replace(" ","").isalpha():
         print("Los nombres deben contener solo letras y no pueden estar vacios. ")
-        return
+        nombre = input("Nombres: ").strip
 
     apellidos = input("Apellidos: ").strip()
     while apellidos=="" or not apellidos.replace(" ","").isalpha():
