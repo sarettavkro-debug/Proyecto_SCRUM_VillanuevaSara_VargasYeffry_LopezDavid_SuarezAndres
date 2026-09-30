@@ -39,11 +39,16 @@ def registrar_cliente():
     if direccion == "":
         print("La direccion no puede estar vacia. ")
         return
-    
+
     celular = input("Celular: ")
 
-    if celular=="":
-        print ("El celular no puede estar vacio y solo puede contener numeros. ")
+    while True:
+        celular = input("Celular: ").strip()
+        try:
+            int(celular)
+            break
+        except ValueError:
+            print("El celular solo debe contener numero y no puede estar vacio. ")
 
     tel_fijo = input("Telefono_fijo: ").strip()
 
