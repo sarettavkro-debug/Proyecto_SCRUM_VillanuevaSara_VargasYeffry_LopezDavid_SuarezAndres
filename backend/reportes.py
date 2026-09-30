@@ -1,12 +1,26 @@
 # Responsable: Desarrollador 4 – Development Team & Scrum Master
 from modelos import clientes, servicios, matriculas
 
-def listar_clientes_inscritos():
+def listar_clientes_inscritos(clientes):
     """
-    Descripción: Imprime en consola la lista completa de clientes registrados.
-    Dev4: Implementar recorrido e impresión formateada de 'clientes'.
+    Muestra en consola el listado completo de clientes registrados en el sistema.
     """
-    pass
+    print("\n" + "="*50)
+    print("      REPORTE: CLIENTES INSCRITOS")
+    print("="*50)
+    
+    if not clientes:
+        print("No hay clientes registrados en el sistema.")
+        return
+
+    for id_cliente, datos in clientes.items():
+        nombre = datos.get("nombre", "N/A")
+        apellido = datos.get("apellido", "N/A")
+        telefono = datos.get("telefono", "N/A")
+        riesgo = datos.get("nivel_riesgo", "N/A")
+        print(f"• ID: {id_cliente} | Nombre: {nombre} {apellido} | Tel: {telefono} | Riesgo: {riesgo}")
+    
+    print("-" * 50)
 
 def listar_servicios_y_capacidad():
     """
