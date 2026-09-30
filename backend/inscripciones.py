@@ -32,6 +32,11 @@ def registrar_cliente():
         return
     
     direccion = input("Direccion: ").strip()
+
+    if direccion == "":
+        print("La direccion no puede estar vacia. ")
+        return
+    
     celular = input("Celular: ")
     tel_fijo = input("Telefono_fijo: ").strip()
 
