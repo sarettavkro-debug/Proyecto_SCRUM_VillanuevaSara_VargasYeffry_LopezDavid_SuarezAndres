@@ -124,7 +124,7 @@ El proyecto cuenta con un tablero Kanban configurado con 5 estados de flujo de t
 
 ### 5.3 Evidencias del Tablero - Día 2
 
-![Captura](<../Imagenes/Kanban día 2 actualizado.png>)
+![Captura 2](<../Imagenes/Kanban día 2 actualizado.png>)
 
 Al finalizar el Día 2, el tablero Kanban refleja el inicio de los trabajos de desarrollo técnico del Sprint 1:
 
@@ -135,7 +135,7 @@ Al finalizar el Día 2, el tablero Kanban refleja el inicio de los trabajos de d
 
 ### 5.4 Evidencias del Tablero - Día 3 (Módulo de Matrículas y Control de Aforo)
 
-![Captura](<../Imagenes/Kanban día 3.png>)
+![Captura 3](<../Imagenes/Kanban día 3.png>)
 
 Al finalizar el Día 3, el tablero en GitHub Projects evidencia el avance y la culminación del desarrollo técnico correspondiente al **Sprint 1**:
 
@@ -148,6 +148,24 @@ Al finalizar el Día 3, el tablero en GitHub Projects evidencia el avance y la c
     * **Tarjeta #5:** Documentación técnica, Requerimientos (RF/RNF) y gestión del marco SCRUM por el Scrum Master (Dev 4).
 * **Hecho:** 
   * **Tarjeta #1:** Configuración inicial del proyecto y entorno de trabajo.
+
+### 5.5 Evidencias del Tablero - Día 4 (Módulo de Reportes e Informes)
+
+![captura 4](<../Imagenes/Kanban día 4.png>)
+
+Al iniciar el Día 4, el tablero en GitHub Projects evidencia la transición y el arranque del desarrollo técnico correspondiente al **Sprint 2**:
+
+* **Reserva (Backlog):** Columna despejada debido a que todas las historias de usuario del proyecto han sido priorizadas y movidas al flujo de trabajo del Sprint 2.
+* **Por hacer:** 
+  * **Tarjeta #6 (Integración Final y Pruebas del Sistema):** Pendiente a la espera de finalizar la lógica del módulo de reportes para realizar la integración integral del programa.
+* **En curso:**
+  * **Tarjeta #4 (Módulo de Reportes e Informes):** Asignada a **Dev 2** y **Dev 3**, enfocada en la programación de los algoritmos de consulta para mostrar la lista de clientes y el estado de ocupación por disciplina en consola.
+  * **Tarjeta #5:** Documentación técnica, Requerimientos (RF/RNF) y gestión del marco SCRUM por el Scrum Master (**Dev 4**).
+* **En revisión:**
+  * **Tarjeta #3 (Módulo de Matrículas y Control de Aforo):** Asignada a **Dev 3**, en proceso de revisión de código y validación del Pull Request hacia la rama principal (`main`) por parte de **Dev 1**.
+* **Hecho:**
+  * **Tarjeta #1:** Configuración inicial del proyecto y entorno de trabajo.
+  * **Tarjeta #2 (Módulo de Inscripciones y Clientes):** Integrada exitosamente en la rama principal (`main`).
 
 ## 6. Historias de Usuario y Criterios de Aceptación
 
