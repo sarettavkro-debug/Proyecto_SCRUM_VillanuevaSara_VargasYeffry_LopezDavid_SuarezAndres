@@ -8,78 +8,42 @@ def registrar_cliente():
     Dev2: Implementar lectura por consola (input) y guardado en lista.
     """
     print("===== REGISTRAR CLIENTE =====")
-
-    while True:
-        id_num = input("ID: ").strip()
-        try:
-            int(id_num)
-            break
-        except ValueError:
-            print("El ID solo debe contener numeros. Intenta de nuevo")
-
+    
+    id_num = input("ID: ").strip()
+    
     for c in clientes:
-        if c ["id_num"] == id_num:
-            print("Ya existe un cliente con ese ID.")
+        if str(c["id_num"]).strip() == id_num:
+            print("Ya existe un cliente registrado con ese ID.")
             return
 
     riesgo = input("Riesgo (bajo/medio/alto): ").strip().lower()
-    while riesgo not in ("bajo", "medio", "alto"):
-        print("Valor invalido. Intenta escribiendo bajo, medio o alto. Intenta de nuevo bro.")
-        riesgo = input("Riesgo (bajo/medio/alto): ").strip().lower()
-
     nombres = input("Nombres: ").strip()
-    while nombres =="" or not nombres.replace(" ","").isalpha():
-        print("Los nombres deben contener solo letras y no pueden estar vacios. ")
-        nombres = input("Nombres: ").strip()
-
     apellidos = input("Apellidos: ").strip()
-    while apellidos=="" or not apellidos.replace(" ","").isalpha():
-        print("Los apellidos deben contener solo letras y no pueden estar avcios. ")
-        apellidos = input ("Apellidos: ").strip()
+    direccion = input("Dirección: ").strip()
+    celular = input("Celular: ").strip()
+    
+    nuevo_cliente = crear_cliente(
+    id_num, 
+    nombres, 
+    apellidos, 
+    direccion, 
+    celular, 
+    fijo="", 
+    riesgo=riesgo 
+    )
+    clientes.append(nuevo_cliente)
+    
+    print(f"Cliente {nombres} {apellidos} registrado completamente.")
 
-    direccion = input("Direccion: ").strip()
-
-    if direccion == "":
-        print("La direccion no puede estar vacia. ")
-        return
-
-
-    while True:
-        celular = input("Celular: ").strip()
-        try:
-            int(celular)
-            break
-        except ValueError:
-            print("El celular solo debe contener numero y no puede estar vacio. ")
-
-
-    while True:
-        tel_fijo = input("Telefono fijo (opcinal, precione Entre para omitir): ").strip()
-        if tel_fijo=="":
-            break
-        try:
-            int(tel_fijo)
-            break
-        except ValueError:
-            print("El telefono fijp debe contener solo numeros y no puede estar vacio. ")
-
-    cliente = crear_cliente(id_num, nombres, apellidos, direccion, celular, tel_fijo, riesgo=riesgo)
-    clientes.append(cliente)
-    print(f"Cliente {nombres} {apellidos} registrado completamente. ")
-
+import modelos
 
 def cargar_servicios_iniciales():
-    """
-    Descripción: Carga los 5 servicios base exigidos por el gimnasio (Yoga, Pilates,
-    Entrenamiento personalizado, Piscina, Gimnasio general) dentro de la lista 'servicios'.
-    Dev2: Implementar la precarga de datos al iniciar la aplicación.
-    """
-
-    if len(servicios) > 0:
-        return
-    
-    servicios.append(crear_servicio(1, "Yoga", 15))
-    servicios.append(crear_servicio(2, "Pilates", 12))
-    servicios.append(crear_servicio(3, "Entrenamiento personalizado", 5))
-    servicios.append(crear_servicio(4, "Piscina", 20))
-    servicios.append(crear_servicio(5, "Gimnasio general", 30))
+    """Carga los servicios base garantizando que la lista se llene."""
+    modelos.servicios.clear()  # Limpia la lista por si tenía basura
+    modelos.servicios.extend([
+        modelos.crear_servicio("1", "Yoga", 15),
+        modelos.crear_servicio("2", "Pilates", 12),
+        modelos.crear_servicio("3", "Entrenamiento personalizado", 5),
+        modelos.crear_servicio("4", "Piscina", 20),
+        modelos.crear_servicio("5", "Gimnasio general", 30)
+    ])

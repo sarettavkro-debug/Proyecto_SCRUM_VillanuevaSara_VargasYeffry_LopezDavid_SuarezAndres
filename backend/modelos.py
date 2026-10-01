@@ -22,15 +22,10 @@ def crear_cliente(id_num, nombres, apellidos, direccion, celular, fijo, estado="
         "riesgo": riesgo
     }
 
-def crear_servicio(id_servicio, nombre, capacidad_maxima):
-    """
-    Descripción: Recibe los datos de un servicio y retorna un diccionario con
-    su ID, nombre, capacidad máxima y cupos ocupados inicializados en 0.
-    Dev1: Implementar el retorno del diccionario del servicio.
-    """
-    return{
+def crear_servicio(id_servicio, nombre, capacidad):
+    return {
         "id_servicio": id_servicio,
         "nombre": nombre,
-        "capacidad_maxima": capacidad_maxima,
+        "capacidad_maxima": capacidad,
         "cupos_ocupados": 0
     }
