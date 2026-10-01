@@ -1,4 +1,3 @@
-# Responsable: Desarrollador 2 – Development Team
 from inscripciones import registrar_cliente, cargar_servicios_iniciales
 from matriculas import matricular_cliente, registrar_asistencia_y_progreso
 from reportes import (
@@ -7,14 +6,18 @@ from reportes import (
     listar_clientes_riesgo_alto,
     mostrar_progreso_clientes
 )
+from modelos import clientes, servicios, matriculas
+import modelos
 
 def menu_principal():
+    
+    cargar_servicios_iniciales()
+    
     """
     Descripción: Despliega el menú interactivo con ciclo 'while' e 'if/elif/else'
     para orquestar las llamadas a cada módulo del programa.
     Dev2: Implementar la lógica del menú y la captura de opciones del usuario.
     """
-    cargar_servicios_iniciales()
 
     while True:
         print("======= MENU PRINCIPAL =======")
@@ -28,21 +31,27 @@ def menu_principal():
         print("8. Salir....")
 
         opcion = input("Seleccionar una opción: ")
-
         if opcion == "1":
             registrar_cliente()
+            
         elif opcion == "2":
             matricular_cliente()
+            
         elif opcion == "3":
             registrar_asistencia_y_progreso()
+            
         elif opcion == "4":
-            listar_clientes_inscritos()
-        elif opcion == "5": 
-            listar_servicios_y_capacidad()
+            listar_clientes_inscritos(clientes)
+            
+        elif opcion == "5":
+            listar_servicios_y_capacidad(modelos.servicios)
+            
         elif opcion == "6":
-            listar_clientes_riesgo_alto()
+            listar_clientes_riesgo_alto(clientes)  
+            
         elif opcion == "7":
-            mostrar_progreso_clientes()
+            mostrar_progreso_clientes(modelos.matriculas)
+            
         elif opcion == "8":
             print("Saliendo del programa....")
             break

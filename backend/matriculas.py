@@ -2,23 +2,19 @@
 from modelos import clientes, servicios, matriculas
 
 def matricular_cliente():
-   
-    try:
-        idC = int(input("Ingrese el ID del cliente: "))
-    except ValueError:
-        print("El ID debe ser un número entero.")
-        return
-
+    idC = input("Ingrese el ID del cliente: ").strip()
+    
     cliente_encontrado = None
     for cliente in clientes:
-        if cliente.get("id_num") == idC:
+        # Convertimos ambos a string para asegurar coincidencia exacta
+        if str(cliente.get("id_num")).strip() == idC:
             cliente_encontrado = cliente
             break
 
     if not cliente_encontrado:
         print("No se encontró el cliente.")
         return
-
+    
     if not servicios:
         print("No hay servicios registrados en el sistema.")
         return
@@ -27,17 +23,14 @@ def matricular_cliente():
     for s in servicios:
         print(f"ID: {s.get('id_servicio')} | Nombre: {s.get('nombre')} | Cupos: {s.get('cupos_ocupados')}/{s.get('capacidad_maxima')}")
 
-    try:
-        idS = int(input("\nIngrese el ID del servicio a matricular: "))
-    except ValueError:
-        print("El ID del servicio debe ser un número entero.")
-        return
+    idS = input("\nIngrese el ID del servicio a matricular: ").strip()
 
     servicio_encontrado = None
     for s in servicios:
-        if s.get("id_servicio") == idS:
+        if str(s.get("id_servicio")).strip() == idS:
             servicio_encontrado = s
             break
+
 
     if not servicio_encontrado:
         print("No se encontró el servicio.")
@@ -52,29 +45,30 @@ def matricular_cliente():
     instructor = input("Ingrese el nombre del instructor asignado: ")
 
     servicio_encontrado["cupos_ocupados"] += 1
-
+    
     nueva_matricula = {
-        "id_cliente": idC,
-        "id_servicio": idS,
-        "fecha_inicio": fecha_inicio,
-        "duracion": duracion,
-        "instructor": instructor,
-        "asistencia": [],
-        "evaluaciones_fisicas": []
-    }
+    "id_cliente": str(cliente_encontrado["id_num"]).strip(),
+    "id_servicio": str(servicio_encontrado["id_servicio"]).strip(),
+    "instructor": instructor,
+    "asistencia": [],
+    "evaluaciones": []
+}
 
     matriculas.append(nueva_matricula)
     print("\n¡Matrícula registrada exitosamente!")
  
 
 def registrar_asistencia_y_progreso():
-    try:
-        idC = int(input("Ingrese el ID del cliente: "))
-    except ValueError:
-        print("El ID debe ser un número entero.")
-        return
+    idC = input("Ingrese el ID del cliente: ").strip()
 
-    matriculas_cliente = [m for m in matriculas if m.get("id_cliente") == idC]
+    if not idC:
+        print("El ID no puede estar vacío.")
+        return
+    
+    matriculas_cliente = [
+        m for m in matriculas 
+        if str(m.get("id_cliente", m.get("id_num", ""))).strip() == idC
+    ]
 
     if not matriculas_cliente:
         print("El cliente no tiene matrículas registradas.")

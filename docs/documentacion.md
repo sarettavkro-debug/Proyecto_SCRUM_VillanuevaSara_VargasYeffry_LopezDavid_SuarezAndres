@@ -185,7 +185,7 @@ Al finalizar el Día 1, el tablero Kanban refleja el inicio de las actividades y
 
 ### 6.3 Evidencias del Tablero - Día 2
 
-![Captura 2](<../Imagenes/Kanban día 2 actualizado.png>)
+![Captura 2](<../Imagenes/Kanban dia 2 actualizado.png>)
 
 Al finalizar el Día 2, el tablero Kanban refleja el inicio de los trabajos de desarrollo técnico del Sprint 1:
 
@@ -196,7 +196,7 @@ Al finalizar el Día 2, el tablero Kanban refleja el inicio de los trabajos de d
 
 ### 6.4 Evidencias del Tablero - Día 3 (Módulo de Matrículas y Control de Aforo)
 
-![Captura 3](<../Imagenes/Kanban día 3.png>)
+![Captura 3](<../Imagenes/Kanban dia 3.png>)
 
 Al finalizar el Día 3, el tablero en GitHub Projects evidencia el avance y la culminación del desarrollo técnico correspondiente al **Sprint 1**:
 
@@ -212,7 +212,7 @@ Al finalizar el Día 3, el tablero en GitHub Projects evidencia el avance y la c
 
 ### 6.5 Evidencias del Tablero - Día 4 (Módulo de Reportes e Informes)
 
-![captura 4](<../Imagenes/Kanban día 4.png>)
+![captura 4](<../Imagenes/Kanban dia 4.png>)
 
 Al iniciar el Día 4, el tablero en GitHub Projects evidencia la transición y el arranque del desarrollo técnico correspondiente al **Sprint 2**:
 
@@ -230,7 +230,7 @@ Al iniciar el Día 4, el tablero en GitHub Projects evidencia la transición y e
 
 ### 6.6 Evidencias del Tablero - Día 5 (Cierre del Sprint 2 y Entrega Final)
 
-![Captura día 5](<../Imagenes/Tablero de kanban ultimo dia .png>)
+![ultimo](<../Imagenes/Tablero de kanban ultimo dia .png>)
 
 Al finalizar el Día 5, el tablero Kanban en GitHub Projects evidencia el cumplimiento total del alcance del proyecto y la culminación del **Sprint 2**:
 
